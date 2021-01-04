@@ -59,7 +59,7 @@ def validation(model, device, valid_loader):
     #return loss_total / len(valid_loader)
     return hit/total
 print(sys.argv[1])
-train_data_file = "./data/" + sys.argv[1] + "/train_10.csv"
+train_data_file = "./data/" + sys.argv[1] + "/train.csv"
 test_data_file = "./data/" + sys.argv[1] +"/test.csv"
 val_data_file = "./data/" + sys.argv[1] + "/val.csv"
 category_list = "./data/" + sys.argv[1] + "/categories.json" 

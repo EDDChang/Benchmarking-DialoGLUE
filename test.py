@@ -1,2 +1,2 @@
-import sys
-print(sys.argv[1])
+a = {'1':3, '2':2, '3':1}
+print(a)

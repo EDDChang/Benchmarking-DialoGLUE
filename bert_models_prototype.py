@@ -5,7 +5,6 @@ from collections import defaultdict
 from torch import nn
 from torch.nn import CrossEntropyLoss, NLLLoss 
 from torch.nn import Dropout
-from torch.nn import CosineSimilarity
 from transformers import BertConfig, BertModel, BertForMaskedLM
 from typing import Any
 
@@ -25,48 +24,24 @@ class IntentBertModel(torch.nn.Module):
     def __init__(self,
                  model_name_or_path: str,
                  dropout: float,
-                 num_intent_labels: int,
-                 labels_info):
+                 num_intent_labels: int):
         super(IntentBertModel, self).__init__()
         self.bert_model = BertModel.from_pretrained(model_name_or_path)
-        
+
         self.dropout = Dropout(dropout)
         self.num_intent_labels = num_intent_labels
-        self.intent_classifier = nn.Linear(self.bert_model.config.hidden_size, num_intent_labels)
-        self.labels_info = labels_info
+
     def forward(self,
                 input_ids: torch.tensor,
                 attention_mask: torch.tensor,
                 token_type_ids: torch.tensor,
-                intent_label: torch.tensor = None,
-                device='cuda'):
-        print(self.labels_info)
+                intent_label: torch.tensor = None):
         pooled_output = self.bert_model(input_ids=input_ids,
                                         attention_mask=attention_mask,
                                         token_type_ids=token_type_ids)[1]
-       
-        labels_embedding_list = self.bert_model(input_ids=self.labels_info['input_ids'].to(device),
-                                           attention_mask=self.labels_info['attention_mask'].to(device),
-                                           token_type_ids=self.labels_info['token_type_ids'].to(device))[1]
-        lr = 0.2
-        dp = self.dropout(pooled_output)
-        cossim_sum = torch.tensor(0.0).to(device)
-        cos = nn.CosineSimilarity(dim=0, eps=1e-6)
-        if intent_label is not None:   
-            for i in range(len(input_ids)):
-                index = intent_label[i]
-                cossim_sum += cos(labels_embedding_list[index], dp[i])
-        cossim_sum /= 16
-        intent_logits = self.intent_classifier(dp)
-
+        x = self.dropout(pooled_output)
         # Compute losses if labels provided
-        if intent_label is not None:
-            loss_fct = CrossEntropyLoss()
-            intent_loss = loss_fct(intent_logits.view(-1, self.num_intent_labels), intent_label.type(torch.long))
-        else:
-            intent_loss = torch.tensor(0)
-        intent_loss -= lr * cossim_sum
-        return intent_logits, intent_loss
+        return {'embeddings': x, 'labels': intent_label}
 
 class SlotBertModel(torch.nn.Module):
     def __init__(self,
