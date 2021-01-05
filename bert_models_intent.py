@@ -40,7 +40,7 @@ class IntentBertModel(torch.nn.Module):
                 token_type_ids: torch.tensor,
                 intent_label: torch.tensor = None,
                 device='cuda'):
-        print(self.labels_info)
+        # print(self.labels_info)
         pooled_output = self.bert_model(input_ids=input_ids,
                                         attention_mask=attention_mask,
                                         token_type_ids=token_type_ids)[1]
