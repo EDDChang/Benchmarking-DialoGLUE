@@ -41,7 +41,7 @@ class IntentBertModel(torch.nn.Module):
                                         token_type_ids=token_type_ids)[1]
         x = self.dropout(pooled_output)
         # Compute losses if labels provided
-        return {'embeddings': x, 'labels': intent_label}
+        return x
 
 class SlotBertModel(torch.nn.Module):
     def __init__(self,
