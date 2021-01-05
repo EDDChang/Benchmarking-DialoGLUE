@@ -8,10 +8,10 @@ from torch.utils.data import DataLoader
 from transformers import BertForSequenceClassification
 from sklearn.model_selection import train_test_split
 from tqdm import tqdm
-import torch.nn as nn
 from transformers import Trainer, TrainingArguments
 from bert_models_prototype import IntentBertModel
 import numpy as np
+from torch.nn import functional as F
 class dataset(torch.utils.data.Dataset):
     def __init__(self, encodings, labels):
         self.encodings = encodings
@@ -57,47 +57,105 @@ def validation(model, device, valid_loader):
     return loss_total / len(valid_loader)
 
 def sampler(n_class, n_sample):
-    return np.sort(np.random.choice(np.arange(0, n_class), n_sample, replace=False))
+    return sorted(np.random.choice(np.arange(0, n_class), n_sample, replace=False))
 
-def loss_fn(sample_list, tmp_sample, n_support, n_query, device):
-    
-    def euclidean_dist(a, b):
-        return sum((a-b)**2)
+def euclidean_dist(x, y):
 
-    support_set = sampler(n_support + n_query, n_support)
-    query_set = np.array(np.setdiff1d(np.arange(0,n_support+n_query), support_set))
-    prototype = {}
-    for classs in sample_list:
-        tmp_prototype = torch.zeros(len(classs['embeddings'][0])).to(device)
-        label = classs['labels'][0].item()
-        for i in range(len(classs['embeddings'])):
-            if i in support_set:
-                tmp_prototype += classs['embeddings'][i]
-        tmp_prototype /= n_support
-        prototype[label] = tmp_prototype
+    n = x.size(0)
+    m = y.size(0)
+    d = x.size(1)
     
-    loss = torch.tensor(0.0).to(device)
-    predict = {}
-    hit = 0
-    total = 0
-    for classs in sample_list:
-        q_label = classs['labels'][0].item()
-        for i in query_set:
-            min = torch.tensor(100000000.0)
-            min_label = -1
-            for p_label in tmp_sample:
-                loss
-                tmp_dist = euclidean_dist(classs['embeddings'][i], prototype[p_label])
-                if p_label == q_label:
-                    loss += tmp_dist
-                if tmp_dist < min:
-                    min = tmp_dist
-                    min_label = p_label
-            if min_label == q_label:
-                hit += 1
-            total +=1
-    return loss, (hit/total)
+    x = x.unsqueeze(1).expand(n,m,d)
+    y = y.unsqueeze(0).expand(n,m,d)
+    return torch.pow(x-y, 2).sum(2)
+
+def loss_fn(inputs, targets, Nc, n_support, n_query, device):
     
+    n_classes = len(inputs)
+    support_set = sampler(n_support+n_query, n_support)
+    query_set = list(set([i for i in range(n_support+n_query)])-set(support_set))
+    
+    prototypes = []
+    for classes in inputs:
+        prototypes.append(classes[support_set].mean(0))    
+    prototypes = torch.stack(prototypes)
+    
+    query_samples = []
+    for classes in inputs:
+        query_samples.append(classes[query_set])
+    query_samples = torch.stack(query_samples)
+    query_samples = torch.reshape(query_samples, (Nc*n_query,768))
+    #print('right!', query_samples.size(), prototypes.size()) 
+    dists = euclidean_dist(query_samples, prototypes)
+    
+    log_p_y = F.log_softmax(-dists, dim=1).view(n_classes, n_query, -1)
+    
+    target_inds = torch.arange(0, n_classes).to(device)
+    target_inds = target_inds.view(n_classes, 1, 1)
+    target_inds = target_inds.expand(n_classes, n_query, 1).long()
+    #print('target_inds', target_inds)
+       
+    loss_val = -log_p_y.gather(2, target_inds).squeeze().view(-1).mean()
+    _, y_hat = log_p_y.max(2)
+    #print('y_hat', y_hat)
+    #print('y_hat_shape', y_hat.size())
+        
+    acc_val = y_hat.eq(target_inds.squeeze()).float().mean()
+
+    return loss_val, acc_val
+
+def prototype_valid(model, device, train_loader, val_loader):
+    
+    with torch.no_grad():
+        val_sample = np.random.choice(np.arange(0, 4), 1, replace=False)
+        n_classes = len(train_loader)
+        prototypes = [torch.zeros(768).to(device) for i in range(n_classes)]
+        prototypes = torch.stack(prototypes)
+        prototypes = torch.reshape(prototypes, (n_classes,768))
+        for batch in train_loader:
+            input_ids = batch['input_ids'].to(device)
+            attention_mask = batch['attention_mask'].to(device)
+            token_type_ids = batch['token_type_ids'].to(device)
+            labels = batch['labels'].to(device)
+            outputs = model(input_ids, attention_mask=attention_mask, token_type_ids = token_type_ids,intent_label=labels)
+            prototypes[labels[0].item()] = outputs.mean(0)
+        
+        query = [torch.zeros(5, 768).to(device) for i in range(n_classes)]
+        query = torch.stack(query)
+        print(query.size())
+        query = torch.reshape(query, (n_classes, 5, 768))
+        sample_counter = 0
+        for batch in val_loader:
+            if sample_counter % 4 != val_sample[0]:
+                sample_counter += 1
+                continue
+            sample_counter +=1
+            input_ids = batch['input_ids'].to(device)
+            attention_mask = batch['attention_mask'].to(device)
+            token_type_ids = batch['token_type_ids'].to(device)
+            labels = batch['labels'].to(device)
+            outputs = model(input_ids, attention_mask=attention_mask, token_type_ids = token_type_ids,intent_label=labels)
+            query[labels[0].item()] = outputs
+        
+        
+        #print(query.size())
+        query = torch.reshape(query, (n_classes*5, 768)) 
+        #print(query.size(), prototypes.size())
+        dists = euclidean_dist(query, prototypes)
+    
+        log_p_y = F.log_softmax(-dists, dim=1).view(n_classes, n_query, -1)
+    
+        target_inds = torch.arange(0, n_classes).to(device)
+        target_inds = target_inds.view(n_classes, 1, 1)
+        target_inds = target_inds.expand(n_classes, 5, 1).long()
+        #print('target_inds', target_inds)
+        loss_val = -log_p_y.gather(2, target_inds).squeeze().view(-1).mean()
+        _, y_hat = log_p_y.max(2)
+        #print('y_hat', y_hat)
+        #print('y_hat_shape', y_hat.size())
+        acc_val = y_hat.eq(target_inds.squeeze()).float().mean()
+    return loss_val, acc_val
+
 if __name__ == "__main__":
     
     print(sys.argv[1])    
@@ -108,7 +166,7 @@ if __name__ == "__main__":
 
     n_support = 5 if sys.argv[2] == 'train_10.csv' else 3
     n_query = 5 if sys.argv[2] == 'train_10.csv' else 2
-    Nc = 20
+    Nc = 30
     
     categories = []
     cateTonum = {}
@@ -151,19 +209,20 @@ if __name__ == "__main__":
     #        print(batch['labels'])
     #sys.exit(0)
     optim = AdamW(model.parameters(), lr = 5e-5)
-    val_loader = DataLoader(val_dataset, batch_size=64, shuffle=False)
+    val_loader = DataLoader(val_dataset, batch_size=5, shuffle=False)
 
     the_min_loss = 100
-    patience = 10
+    patience = 50
     trigger_times = 0
     candid = 0
-
-    for epoch in range(100):
+    warm_up = 100
+    for epoch in range(1000):
         train_loss = 0
         model.train()
         sample_list = []
+        labels_list = []
         tmp_sample = sampler(len(cate_list), Nc)
-        print(tmp_sample)
+        #print(tmp_sample)
         optim.zero_grad()
         for batch in tqdm(train_loader):
             if batch['labels'][0].item() in tmp_sample:
@@ -173,14 +232,15 @@ if __name__ == "__main__":
                 labels = batch['labels'].to(device)
                 outputs = model(input_ids, attention_mask=attention_mask, token_type_ids = token_type_ids,intent_label=labels)
                 sample_list.append(outputs)
-        loss, acc = loss_fn(sample_list, tmp_sample,n_support, n_query, device)
-        print(loss, acc)
+                labels_list.append(labels)
+        loss, acc = loss_fn(sample_list, labels_list, Nc, n_support, n_query, device)
+        #print('train loss:', loss.item(), 'train acc:', acc.item())
         loss.backward()
         optim.step()
-        if epoch > 20:
-            sys.exit(0)
-        '''the_current_loss = validation(model, device, val_loader)
-        #print('the_current_loss:', the_current_loss)
+        if epoch < warm_up:
+            continue
+        the_current_loss, the_current_acc = prototype_valid(model, device, train_loader, val_loader)
+        #print('valid loss:', the_current_loss.item(), 'valid acc', the_current_acc.item())
         if the_current_loss > the_min_loss:
             trigger_times +=1
             #print('trigger times:',trigger_times)
@@ -192,7 +252,7 @@ if __name__ == "__main__":
             the_min_loss = the_current_loss
             torch.save(model.state_dict(), 'current.pkl')
             candid = 1
-        '''
+        
     print('test')
     hit = 0
     total = 0
@@ -201,37 +261,53 @@ if __name__ == "__main__":
         model.load_state_dict(torch.load('./current.pkl'))
     model.eval()
 
-    #wrong_predict_dict = [{} for j in range(len(cateTonum))]
-    #acc_list = [0.0 for i in range(len(cate_list))]
+    wrong_predict_dict = [{} for j in range(len(cateTonum))]
+    acc_list = [0.0 for i in range(len(cate_list))]
 
-    #current_label = 0
-    #current_hit = 0
-    #current_total = 0
+    current_label = 0
+    current_hit = 0
+    current_total = 0
     with torch.no_grad():    
+        
+        prototypes = [torch.zeros(768).to(device) for i in range(len(train_loader))]
+        prototypes = torch.stack(prototypes)
+        prototypes = torch.reshape(prototypes, (len(train_loader),768))
+        for batch in train_loader:
+            input_ids = batch['input_ids'].to(device)
+            attention_mask = batch['attention_mask'].to(device)
+            token_type_ids = batch['token_type_ids'].to(device)
+            labels = batch['labels'].to(device)
+            outputs = model(input_ids, attention_mask=attention_mask, token_type_ids = token_type_ids,intent_label=labels)
+            prototypes[labels[0].item()] = outputs.mean(0)
+        
         for batch in tqdm(test_loader):
             input_ids = batch['input_ids'].to(device)
             attention_mask = batch['attention_mask'].to(device)
             token_type_ids = batch['token_type_ids'].to(device)
             labels = batch['labels'].to(device)
-            #if labels[0] != current_label and current_total != 0:
-            #    acc_list[current_label] = current_hit/current_total
-            #    current_hit = 0
-            #    current_total=0
-            #    current_label = labels[0]
+            if labels[0] != current_label and current_total != 0:
+                acc_list[current_label] = current_hit/current_total
+                current_hit = 0
+                current_total=0
+                current_label = labels[0]
             outputs = model(input_ids, attention_mask=attention_mask, token_type_ids = token_type_ids,intent_label=labels)
-            predicted = torch.argmax(outputs[0], 1)
+            outputs = outputs.expand(len(train_loader),768)
+            predicted = torch.argmin(torch.pow(outputs-prototypes, 2).sum(1))
             total += 1
-            #current_total+=1
-            if predicted == labels:
+            current_total+=1
+            #print(predicted, labels)
+            if predicted.item() == labels[0].item():
                 hit += 1 
-            #    current_hit += 1
-            #if cate_list[predicted[0].item()] in wrong_predict_dict[labels[0]]:
-            #    wrong_predict_dict[labels[0]][cate_list[predicted[0].item()]] = wrong_predict_dict[labels[0]][cate_list[predicted[0].item()]] + 1
-            #else:
-            #    wrong_predict_dict[labels[0]][cate_list[predicted[0].item()]] = 1
-                #print('predict label: {} real label: {}'.format(predicted[0], labels[0]))
-        #acc_list[current_label] = current_hit/current_total
-        #for i in range(len(wrong_predict_dict)):
-        #    print("{:<30}{:.3f}{:<5}{}".format(cate_list[i], acc_list[i],"",sorted(wrong_predict_dict[i].items(), key=lambda x:x[1], reverse=True)))
+                current_hit += 1
+            else:
+                if cate_list[predicted.item()] in wrong_predict_dict[labels[0]]:
+                    wrong_predict_dict[labels[0]][cate_list[predicted.item()]] = wrong_predict_dict[labels[0]][cate_list[predicted.item()]] + 1
+                else:
+                    wrong_predict_dict[labels[0]][cate_list[predicted.item()]] = 1
+                    #print('predict label: {} real label: {}'.format(predicted.item(), labels[0].item()))
+        acc_list[current_label] = current_hit/current_total
+        
+        for i in range(len(wrong_predict_dict)):
+            print("{:<30}{:.3f}{:<5}{}".format(cate_list[i], acc_list[i],"",sorted(wrong_predict_dict[i].items(), key=lambda x:x[1], reverse=True)))
         print('test_acc = {}'.format(hit/total))    
     sys.exit(0)
