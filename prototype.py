@@ -166,7 +166,7 @@ if __name__ == "__main__":
 
     n_support = 5 if sys.argv[2] == 'train_10.csv' else 3
     n_query = 5 if sys.argv[2] == 'train_10.csv' else 2
-    Nc = 30
+    Nc = 20
     
     categories = []
     cateTonum = {}
@@ -268,7 +268,7 @@ if __name__ == "__main__":
     current_hit = 0
     current_total = 0
     with torch.no_grad():    
-        
+        idx = 0
         prototypes = [torch.zeros(768).to(device) for i in range(len(train_loader))]
         prototypes = torch.stack(prototypes)
         prototypes = torch.reshape(prototypes, (len(train_loader),768))
@@ -300,11 +300,13 @@ if __name__ == "__main__":
                 hit += 1 
                 current_hit += 1
             else:
+                print(test_texts[idx], ':', f'predict label: {cate_list[predicted[0].item()]}, true label: {cate_list[labels[0].item()]}')
                 if cate_list[predicted.item()] in wrong_predict_dict[labels[0]]:
                     wrong_predict_dict[labels[0]][cate_list[predicted.item()]] = wrong_predict_dict[labels[0]][cate_list[predicted.item()]] + 1
                 else:
                     wrong_predict_dict[labels[0]][cate_list[predicted.item()]] = 1
                     #print('predict label: {} real label: {}'.format(predicted.item(), labels[0].item()))
+            idx += 1
         acc_list[current_label] = current_hit/current_total
         
         for i in range(len(wrong_predict_dict)):

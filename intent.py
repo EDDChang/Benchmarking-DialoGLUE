@@ -140,13 +140,14 @@ for epoch in range(500):
 print('test')
 hit = 0
 total = 0
-test_loader = DataLoader(test_dataset, batch_size=64, shuffle=True)
+test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
 for i in range(candid):
     hit = 0
     total = 0
     model.load_state_dict(torch.load('./current.pkl'.format(i)))
     model.eval()
     with torch.no_grad():
+        idx = 0
         for batch in tqdm(test_loader):
             input_ids = batch['input_ids'].to(device)
             attention_mask = batch['attention_mask'].to(device)
@@ -156,4 +157,8 @@ for i in range(candid):
             predicted = torch.argmax(outputs[0], 1)
             total += labels.size(0)
             hit += (predicted == labels).sum().item()
+            for i in range(len(predicted)):
+                if predicted[i].item() != labels[i].item():
+                    print(test_texts[64 * idx + i], ' ', f'predict label: {labels_list[predicted[i].item()]}, true label: {labels_list[labels[i].item()]}')
+            idx += 1
         print('test_acc = {}'.format(hit/total))    
