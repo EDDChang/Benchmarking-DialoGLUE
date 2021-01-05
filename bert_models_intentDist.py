@@ -49,9 +49,8 @@ class IntentBertModel(torch.nn.Module):
 
         dp = self.dropout(pooled_output) 
         intent_logits = self.intent_classifier(dp)
-        eudist = torch.tensor(0.0).to(device)
+        dist = torch.tensor(0.0).to(device)
         cossim_sum = torch.tensor(0.0).to(device)
-        
         if intent_label is not None:
             cos = nn.CosineSimilarity(dim = 0, eps=1e-6)
             labels_embedding_list = self.bert_model(input_ids=self.labels_info['input_ids'].to(device),
@@ -59,7 +58,9 @@ class IntentBertModel(torch.nn.Module):
                                             token_type_ids=self.labels_info['token_type_ids'].to(device))[1]
         
             labels_embedding_list = self.dropout(labels_embedding_list) 
-            
+            shuffle = torch.randperm(len(self.labels_info['labels']))
+            cos2 = nn.CosineSimilarity(dim=1, eps=1e-6)
+            dist = cos2(labels_embedding_list, labels_embedding_list[shuffle]).mean(0)
             #target_embedding = []
             #for label in intent_label:
             #    target_embedding.append(labels_embedding_list[label])
@@ -70,7 +71,6 @@ class IntentBertModel(torch.nn.Module):
             for i in range(len(input_ids)):
                 index = intent_label[i]
                 cossim_sum += cos(labels_embedding_list[index], dp[i])
-                
                 #eudist += (torch.pow(labels_embedding_list[index] - dp[i], 2).sum()/len(input_ids))
             #eudist /= 25
             cossim_sum /= len(input_ids)
@@ -82,12 +82,11 @@ class IntentBertModel(torch.nn.Module):
             loss_fct = CrossEntropyLoss()
             intent_loss = loss_fct(intent_logits.view(-1, self.num_intent_labels), intent_label.type(torch.long))
             labels_loss = loss_fct(labels_logits.view(-1, self.num_intent_labels), self.labels_info['labels'].to(device).type(torch.long))
-            print(intent_loss, cossim_sum, labels_loss)
         else:
             labels_loss = torch.tensor(0.0)
             intent_loss = torch.tensor(0.0)
         
-        return intent_logits , (1-self.alpha)*intent_loss + self.alpha*torch.log(1/cossim_sum)
+        return intent_logits , 0.8*intent_loss + 0.1*torch.log(1/cossim_sum) + 0.1*torch.exp(dist)
 
 class SlotBertModel(torch.nn.Module):
     def __init__(self,
