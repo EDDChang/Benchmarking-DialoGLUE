@@ -148,6 +148,7 @@ if __name__ == "__main__":
     current_hit = 0
     current_total = 0
     with torch.no_grad():    
+        idx = 0
         for batch in tqdm(test_loader):
             input_ids = batch['input_ids'].to(device)
             attention_mask = batch['attention_mask'].to(device)
@@ -165,11 +166,15 @@ if __name__ == "__main__":
             if predicted == labels:
                 hit += 1 
                 current_hit += 1
+            else: 
+                print(test_texts[idx], ':', f'predict label: {cate_list[predicted[0].item()]}, true label: {cate_list[labels[0].item()]}')
+
             if cate_list[predicted[0].item()] in wrong_predict_dict[labels[0]]:
                 wrong_predict_dict[labels[0]][cate_list[predicted[0].item()]] = wrong_predict_dict[labels[0]][cate_list[predicted[0].item()]] + 1
             else:
                 wrong_predict_dict[labels[0]][cate_list[predicted[0].item()]] = 1
                 #print('predict label: {} real label: {}'.format(predicted[0], labels[0]))
+            idx += 1
         acc_list[current_label] = current_hit/current_total
         for i in range(len(wrong_predict_dict)):
             print("{:<30}{:.3f}{:<5}{}".format(cate_list[i], acc_list[i],"",sorted(wrong_predict_dict[i].items(), key=lambda x:x[1], reverse=True)))
