@@ -1,0 +1,665 @@
+banking
+How do I locate my card? -> predict label: lost_or_stolen_card, true label: card_arrival
+Is there a way to know when my card will arrive? -> predict label: card_delivery_estimate, true label: card_arrival
+When will I get my card? -> predict label: card_delivery_estimate, true label: card_arrival
+still waiting on that card -> predict label: card_delivery_estimate, true label: card_arrival
+Is it normal to have to wait over a week for my new card? -> predict label: card_delivery_estimate, true label: card_arrival
+How long does a card delivery take? -> predict label: card_delivery_estimate, true label: card_arrival
+I am still waiting for my card after 1 week.  Is this ok? -> predict label: card_delivery_estimate, true label: card_arrival
+I have been waiting longer than expected for my bank card, could you provide information on when it will arrive? -> predict label: card_delivery_estimate, true label: card_arrival
+I did not get my card yet, is it lost? -> predict label: lost_or_stolen_card, true label: card_arrival
+Status of the card I ordered. -> predict label: lost_or_stolen_card, true label: card_arrival
+How long should my new card take to arrive? -> predict label: card_delivery_estimate, true label: card_arrival
+How do I know when my card will arrive? -> predict label: card_delivery_estimate, true label: card_arrival
+I'm still waiting on my card to be delivered. -> predict label: card_delivery_estimate, true label: card_arrival
+I'm starting to think my card is lost because it still hasn't arrived, can you help? -> predict label: lost_or_stolen_card, true label: card_arrival
+Is there tracking info available? -> predict label: why_verify_identity, true label: card_arrival
+I received my new card, but I don't see it in the app anywhere.  What do I do? -> predict label: card_arrival, true label: card_linking
+Can I put my old card back into the system? I just found it/ -> predict label: lost_or_stolen_card, true label: card_linking
+The app doesn't show the card I received. -> predict label: card_payment_not_recognised, true label: card_linking
+Where do I need to go in the app to enter my card info? -> predict label: why_verify_identity, true label: card_linking
+I have found my lost or stolen card. Is there a way I can link the card with my account through my app again? -> predict label: lost_or_stolen_card, true label: card_linking
+Could you help me reactivate my card? It was previously lost, but I found it this morning in my jacket. -> predict label: lost_or_stolen_card, true label: card_linking
+Can I link another card to my account? -> predict label: getting_spare_card, true label: card_linking
+Is it a good time to exchange? -> predict label: exchange_charge, true label: exchange_rate
+What currencies is an exchange rate calculated in? -> predict label: fiat_currency_support, true label: exchange_rate
+Why am I being charged more ? -> predict label: extra_charge_on_statement, true label: card_payment_wrong_exchange_rate
+They charged me wrong for a currency exchange on a purchase. -> predict label: exchange_charge, true label: card_payment_wrong_exchange_rate
+Hi, I don't think your exchange rate is right. I need you to check the official interbank exchange please. -> predict label: exchange_rate, true label: card_payment_wrong_exchange_rate
+The wrong exchange rate was used when I bought something with a foriegn currency. -> predict label: wrong_exchange_rate_for_cash_withdrawal, true label: card_payment_wrong_exchange_rate
+How can I check the exchange rate applied to my transaction? -> predict label: exchange_rate, true label: card_payment_wrong_exchange_rate
+When will the $1 transaction be credited to me? -> predict label: transfer_timing, true label: extra_charge_on_statement
+Where did this fee come from? -> predict label: card_payment_fee_charged, true label: extra_charge_on_statement
+Why was I overcharged a pound!? -> predict label: transaction_charged_twice, true label: extra_charge_on_statement
+Can you help me with a weird charge?  It's a pound charge that never goes away from the statement view on the app I'm using.  It's not described as anything but "Pending", and that status has never changed during the last two days. -> predict label: pending_card_payment, true label: extra_charge_on_statement
+It's been two weeks, why has the transaction for $1.00 not been reversed? -> predict label: transfer_not_received_by_recipient, true label: extra_charge_on_statement
+What is the €1 fee for? -> predict label: card_payment_fee_charged, true label: extra_charge_on_statement
+I'm quite confused as to what is going on. There is some odd extra pound charge on my statement in the app that's just listed as pending and doesn't go away since a couple days. -> predict label: pending_card_payment, true label: extra_charge_on_statement
+I made a withdrawal from my account but it has not posted? -> predict label: cash_withdrawal_not_recognised, true label: pending_cash_withdrawal
+Why am I unable to take money from my card but the statement says the transaction is still pending? -> predict label: pending_card_payment, true label: pending_cash_withdrawal
+I tried to take money from my card, but it didn't work. Later I saw that the transaction is still in progress. What's goign on? -> predict label: pending_card_payment, true label: pending_cash_withdrawal
+Where's accounting for my cash withdrawal? -> predict label: cash_withdrawal_charge, true label: pending_cash_withdrawal
+My account was charged for a withdraw I tried to make that was decline. -> predict label: declined_cash_withdrawal, true label: pending_cash_withdrawal
+how long does it take to post atm with drawl -> predict label: atm_support, true label: pending_cash_withdrawal
+What's a pending transaction? My card was declined at an ATM, but my account says it's still pending. Can I cancel the payment? -> predict label: pending_card_payment, true label: pending_cash_withdrawal
+Does your system support multiple currency. -> predict label: exchange_via_app, true label: fiat_currency_support
+There is an incoming payment into my account, but it is deactivated. Will they still be processed? -> predict label: reverted_card_payment?, true label: fiat_currency_support
+Where can I exchange my money for EUR? -> predict label: exchange_charge, true label: fiat_currency_support
+Can I exchange to EUR? -> predict label: exchange_charge, true label: fiat_currency_support
+Do you offer additional currency options? -> predict label: supported_cards_and_currencies, true label: fiat_currency_support
+How do I change currencies to euros? -> predict label: exchange_via_app, true label: fiat_currency_support
+Will you handle EUR? -> predict label: supported_cards_and_currencies, true label: fiat_currency_support
+Do you happen to do exchanges of EUR? -> predict label: exchange_charge, true label: fiat_currency_support
+Do you accept exchanges to EUR? -> predict label: exchange_charge, true label: fiat_currency_support
+Am I able to exchange currencies? -> predict label: exchange_charge, true label: fiat_currency_support
+I want to make a currency exchange to EU. -> predict label: exchange_charge, true label: fiat_currency_support
+How do I accept exchanges to EU? -> predict label: exchange_charge, true label: fiat_currency_support
+Do you support the exchange of EUR from my currency. -> predict label: exchange_charge, true label: fiat_currency_support
+I need my card now! -> predict label: lost_or_stolen_card, true label: card_delivery_estimate
+my card was not in the mail again can you advise? -> predict label: card_arrival, true label: card_delivery_estimate
+i need my card quick -> predict label: card_arrival, true label: card_delivery_estimate
+Ordered awhile back, what is the ETA in the US? -> predict label: why_verify_identity, true label: card_delivery_estimate
+Send my card as soon as you are able to. -> predict label: card_arrival, true label: card_delivery_estimate
+When are cards delivered? -> predict label: order_physical_card, true label: card_delivery_estimate
+Can I get my card expedited? -> predict label: card_about_to_expire, true label: card_delivery_estimate
+If there isn't much money left can it automatically top-up? -> predict label: top_up_limits, true label: automatic_top_up
+Can I have it add money at certain time intervals when I travel? -> predict label: receiving_money, true label: automatic_top_up
+I'm going to be away for awhile, can I have it add money automatically in certain intervals? -> predict label: transfer_timing, true label: automatic_top_up
+where is theft-top option? -> predict label: transaction_charged_twice, true label: automatic_top_up
+How do I make sure I don't run out of money on my card while traveling? -> predict label: declined_cash_withdrawal, true label: automatic_top_up
+Can I space out how often money is transferred along my travels? -> predict label: transfer_timing, true label: automatic_top_up
+Will it automatically top-up money if there isn't a lot left? -> predict label: top_up_limits, true label: automatic_top_up
+Can I have it add money automatically in certain intervals? -> predict label: top_up_limits, true label: automatic_top_up
+how do I top up my money automatically -> predict label: apple_pay_or_google_pay, true label: automatic_top_up
+Can I be topped up once I hit a certain balance? -> predict label: top_up_limits, true label: automatic_top_up
+Will it automatically top-up if there isn't much money left? -> predict label: top_up_limits, true label: automatic_top_up
+Is there a top-up feature, if there isn't a lot of money left? -> predict label: top_up_limits, true label: automatic_top_up
+My card appears to be broken how can I fix it? -> predict label: card_about_to_expire, true label: card_not_working
+My card broke. -> predict label: card_swallowed, true label: card_not_working
+How do I unblock my card using the app? -> predict label: pin_blocked, true label: card_not_working
+I think my card is broken -> predict label: lost_or_stolen_card, true label: card_not_working
+My card was declined today when eating and I need to know what's wrong. -> predict label: declined_cash_withdrawal, true label: card_not_working
+Is my card broken? -> predict label: card_swallowed, true label: card_not_working
+I broke my card -> predict label: lost_or_stolen_card, true label: card_not_working
+My card is broke, what do I do? -> predict label: topping_up_by_card, true label: card_not_working
+My card doesn't accept any transaction at all. What's wrong?? -> predict label: declined_card_payment, true label: card_not_working
+Nothing goes through on my card. -> predict label: transfer_not_received_by_recipient, true label: card_not_working
+Could it be that I deactivated my card, its not working? -> predict label: activate_my_card, true label: card_not_working
+May I exchange currencies with this? -> predict label: fiat_currency_support, true label: exchange_via_app
+Tell me how I can exchange between different currency. -> predict label: exchange_charge, true label: exchange_via_app
+How are currencies exchanged? -> predict label: fiat_currency_support, true label: exchange_via_app
+How do I make an exchange from one currency to another? -> predict label: exchange_charge, true label: exchange_via_app
+What all currencies can be exchanged? -> predict label: fiat_currency_support, true label: exchange_via_app
+Can I get some money exchanged? -> predict label: exchange_charge, true label: exchange_via_app
+Is it possible to change to another currency? -> predict label: receiving_money, true label: exchange_via_app
+How would I use my money in a different country? -> predict label: receiving_money, true label: exchange_via_app
+What is the best way to exchange currency? -> predict label: exchange_rate, true label: exchange_via_app
+How do I go through the process of currency exchange? -> predict label: exchange_rate, true label: exchange_via_app
+Can am I able to exchange currencies? -> predict label: exchange_charge, true label: exchange_via_app
+What currency's can i exchange for? -> predict label: exchange_charge, true label: exchange_via_app
+I would like to exchange some currency. -> predict label: exchange_charge, true label: exchange_via_app
+How do I exchange currency? -> predict label: exchange_rate, true label: exchange_via_app
+Can I exchange currencies with my account? -> predict label: fiat_currency_support, true label: exchange_via_app
+I would like to exchange currencies -> predict label: fiat_currency_support, true label: exchange_via_app
+Is a copy of the police report necessary for completing the report process? -> predict label: unable_to_verify_identity, true label: lost_or_stolen_card
+Where can I view my PIN? -> predict label: get_physical_card, true label: pin_blocked
+Will you reinstate my PIN? -> predict label: get_physical_card, true label: pin_blocked
+How do I reset my PIN, I can't seem to use my card? -> predict label: change_pin, true label: pin_blocked
+I have exceeded the number of times I can try my PIN -> predict label: get_physical_card, true label: pin_blocked
+My account is blocked, how do I log in now -> predict label: lost_or_stolen_phone, true label: pin_blocked
+Can I reactivate my PIN? -> predict label: get_physical_card, true label: pin_blocked
+How do I reset my PIN? -> predict label: change_pin, true label: pin_blocked
+My card's frozen, what can I do? -> predict label: lost_or_stolen_card, true label: pin_blocked
+How can I unlock the pin? -> predict label: change_pin, true label: pin_blocked
+My PIN is not working and I need assistance. -> predict label: get_physical_card, true label: pin_blocked
+what is required documents for new card process ? -> predict label: activate_my_card, true label: contactless_not_working
+The NFC payment wouldn't work on the bus today. Help? -> predict label: virtual_card_not_working, true label: contactless_not_working
+Should i reinstall the payment app? -> predict label: reverted_card_payment?, true label: contactless_not_working
+If I make a top-up are there charges applied? -> predict label: top_up_limits, true label: top_up_by_bank_transfer_charge
+I would like to refill my account using SWIFT. -> predict label: Refund_not_showing_up, true label: top_up_by_bank_transfer_charge
+Is it possible to get a transfer from SWIFT? -> predict label: pending_transfer, true label: top_up_by_bank_transfer_charge
+Do I have to pay any fees in order to receive money? -> predict label: card_payment_fee_charged, true label: top_up_by_bank_transfer_charge
+Will there be any charges for money received? -> predict label: card_payment_fee_charged, true label: top_up_by_bank_transfer_charge
+What are the fees for top-ups? -> predict label: top_up_limits, true label: top_up_by_bank_transfer_charge
+What is the fee to receive money? -> predict label: card_payment_fee_charged, true label: top_up_by_bank_transfer_charge
+Please tell me about SWIFT transfers at this bank. -> predict label: transfer_fee_charged, true label: top_up_by_bank_transfer_charge
+Can you tell me what the transfer policy is? -> predict label: transfer_timing, true label: top_up_by_bank_transfer_charge
+What us the fee to transfer money from my bank? -> predict label: transfer_fee_charged, true label: top_up_by_bank_transfer_charge
+Can you tell me the total cost of a transfer? -> predict label: transfer_fee_charged, true label: top_up_by_bank_transfer_charge
+My card was topped this morning but I can't see the funds. Why didn't it complete? -> predict label: top_up_reverted, true label: pending_top_up
+there's a delay in my top-up -> predict label: top_up_failed, true label: pending_top_up
+I've already topped up, but I cannot see the funds being available. What happened? -> predict label: top_up_reverted, true label: pending_top_up
+I  do not see a top-up processed. -> predict label: top_up_failed, true label: pending_top_up
+I topped up but it didn't complete -> predict label: top_up_reverted, true label: pending_top_up
+top-up is slow to process -> predict label: top_up_limits, true label: pending_top_up
+top up did not complete -> predict label: top_up_failed, true label: pending_top_up
+So I just put my top-up into the card and it hasn't changed. -> predict label: top_up_reverted, true label: pending_top_up
+OMG!  I'm trying to load my card and it wont top up!  I desperately need the money either on my card or in my bank, where is it? -> predict label: topping_up_by_card, true label: pending_top_up
+It doesn't look like the top-up completed. -> predict label: top_up_failed, true label: pending_top_up
+Where is the money I topped off with? -> predict label: top_up_reverted, true label: pending_top_up
+Can i cancel a charge? -> predict label: request_refund, true label: cancel_transfer
+I made a transaction but did it to the wrong account. -> predict label: transfer_not_received_by_recipient, true label: cancel_transfer
+Is there any way to cancel a transfer? -> predict label: top_up_by_bank_transfer_charge, true label: cancel_transfer
+I accidentally made a transaction to the wrong account. -> predict label: transfer_not_received_by_recipient, true label: cancel_transfer
+Can I cancel a transfer if is already processed? -> predict label: pending_transfer, true label: cancel_transfer
+How do I cancel my transfer? -> predict label: failed_transfer, true label: cancel_transfer
+I submitted a transaction to the incorrect account. -> predict label: transfer_not_received_by_recipient, true label: cancel_transfer
+I made an error in payment yesterday and I need it fixed asap because it's for my rent tomorrow. -> predict label: reverted_card_payment?, true label: cancel_transfer
+My recent transfer needs to be cancelled immediately; it was a mistake, please can you cancel it before it goes through? -> predict label: failed_transfer, true label: cancel_transfer
+Is there any limit to the amount I can add to a card at a time? -> predict label: order_physical_card, true label: top_up_limits
+Why did I not get my cash back after I withdrew? -> predict label: declined_cash_withdrawal, true label: wrong_amount_of_cash_received
+Where is the money I pushed it's on my mobile app as being withdrawn. -> predict label: top_up_reverted, true label: wrong_amount_of_cash_received
+My cash withdrawal was partly declined -> predict label: declined_cash_withdrawal, true label: wrong_amount_of_cash_received
+did not receive correct cash upon withdrawal -> predict label: declined_cash_withdrawal, true label: wrong_amount_of_cash_received
+Will declined funds I tried to withdraw be returned to me? -> predict label: transfer_not_received_by_recipient, true label: wrong_amount_of_cash_received
+I would appreciate that someone let me know when there is an extra charge for payments. I was checking the app earlier and saying a charge on one of my payments that was additional that no one made me aware of before. -> predict label: extra_charge_on_statement, true label: card_payment_fee_charged
+im not sure what this charge is for -> predict label: request_refund, true label: card_payment_fee_charged
+Someone needs to make me aware when there are extra charges for payments. I happened to be looking at the app earlier and noticed a charge associated to a payment that was extra that no one made me aware of before at all. -> predict label: extra_charge_on_statement, true label: card_payment_fee_charged
+Is using my card free? -> predict label: card_acceptance, true label: card_payment_fee_charged
+What fees apply when using a card? -> predict label: card_acceptance, true label: card_payment_fee_charged
+Why do you charge for payments? Why aren't your charges clearly laid out in the agreement? -> predict label: transfer_fee_charged, true label: card_payment_fee_charged
+I completed an in country transfer a few days ago and was sure to check the account information several times since the transaction was completed, but the funds are still not available. What is the problem? -> predict label: balance_not_updated_after_bank_transfer, true label: transfer_not_received_by_recipient
+My money transfer has not arrived. -> predict label: balance_not_updated_after_bank_transfer, true label: transfer_not_received_by_recipient
+I am still waiting for a transaction to be completed -> predict label: pending_top_up, true label: transfer_not_received_by_recipient
+How long does it take for a transfer to get to a recipient? -> predict label: transfer_timing, true label: transfer_not_received_by_recipient
+The transfer I did hasn't arrived -> predict label: balance_not_updated_after_bank_transfer, true label: transfer_not_received_by_recipient
+how long do money transfers take? -> predict label: transfer_timing, true label: transfer_not_received_by_recipient
+I transferred some money and it didint arrive -> predict label: balance_not_updated_after_bank_transfer, true label: transfer_not_received_by_recipient
+Where is the transfer I started? -> predict label: transfer_timing, true label: transfer_not_received_by_recipient
+transaction failed? -> predict label: cancel_transfer, true label: transfer_not_received_by_recipient
+The receipient doesn't see my money transfer. -> predict label: failed_transfer, true label: transfer_not_received_by_recipient
+I need to find out why my transfer didn't get there. -> predict label: failed_transfer, true label: transfer_not_received_by_recipient
+I sent money.  They haven't received it. -> predict label: card_arrival, true label: transfer_not_received_by_recipient
+Hey, I need some help figuring out way my transfer is not complete yet. My Landlord hasn't got the money yet.She should have received it by now. -> predict label: balance_not_updated_after_bank_transfer, true label: transfer_not_received_by_recipient
+The day before yesterday, I performed a transfer which was within this country. It still hasn't gone through. Can you check on that? The account number is definitely correct, as I've checked and double checked. -> predict label: balance_not_updated_after_bank_transfer, true label: transfer_not_received_by_recipient
+I'm having a problem with a money transfer.  I sent some money to a friend a couple of hours ago, and they haven't received it yet.  Why hasn't it gotten to them? How long do transfers need to go through? -> predict label: balance_not_updated_after_bank_transfer, true label: transfer_not_received_by_recipient
+I transferred some money but the receiver can't pick it up for some reason. -> predict label: balance_not_updated_after_bank_transfer, true label: transfer_not_received_by_recipient
+Im waiting for my transaction to go through. -> predict label: pending_transfer, true label: transfer_not_received_by_recipient
+How long will it take for my transaction to be completed? -> predict label: transfer_timing, true label: transfer_not_received_by_recipient
+I sent some money and the receiver can't access it. -> predict label: balance_not_updated_after_cheque_or_cash_deposit, true label: transfer_not_received_by_recipient
+I sent my friend some money a few hours ago but she has not received it yet. She really needs it. How long does this take? -> predict label: card_arrival, true label: transfer_not_received_by_recipient
+When will my funds transfer? -> predict label: transfer_timing, true label: transfer_not_received_by_recipient
+How long does it take for transfers to finish?  I sent funds to my pal, and she says that she has not gotten anything. -> predict label: balance_not_updated_after_bank_transfer, true label: transfer_not_received_by_recipient
+How long do transfers need to come through? I sent some money to a friend, she needs it urgently, but seems it's still not there yet after a couple hours. -> predict label: pending_transfer, true label: transfer_not_received_by_recipient
+I am still awaiting the completion of the transaction. -> predict label: pending_transfer, true label: transfer_not_received_by_recipient
+To add money to my account, what currencies can I use? -> predict label: fiat_currency_support, true label: supported_cards_and_currencies
+I need support options, I want to top my card -> predict label: top_up_limits, true label: supported_cards_and_currencies
+I have 1 other US card.  Can you take that? -> predict label: getting_spare_card, true label: supported_cards_and_currencies
+What currencies are accepted for adding money? -> predict label: fiat_currency_support, true label: supported_cards_and_currencies
+What kind of currencies can I use to add money? -> predict label: fiat_currency_support, true label: supported_cards_and_currencies
+If I only have 1 other US card, can you take it? -> predict label: getting_spare_card, true label: supported_cards_and_currencies
+Will you accept my other card from the U.S.? -> predict label: country_support, true label: supported_cards_and_currencies
+Will you accept my other card? -> predict label: getting_spare_card, true label: supported_cards_and_currencies
+When adding money, what are the currencies you take? -> predict label: fiat_currency_support, true label: supported_cards_and_currencies
+Which forms of currency are accepted? -> predict label: fiat_currency_support, true label: supported_cards_and_currencies
+I want to add money but don't know what currencies you accept, can you tell me? -> predict label: fiat_currency_support, true label: supported_cards_and_currencies
+I just have one other card from the US. Is that okay? -> predict label: getting_spare_card, true label: supported_cards_and_currencies
+Do you accept other currencies besides US Dollars? -> predict label: fiat_currency_support, true label: supported_cards_and_currencies
+Can I use any currency to add money? -> predict label: exchange_via_app, true label: supported_cards_and_currencies
+Is my currency okay to add money with? -> predict label: exchange_via_app, true label: supported_cards_and_currencies
+I requested a virtual card but it is not showing up. Why? -> predict label: virtual_card_not_working, true label: getting_virtual_card
+Can I get a copy of the card by email? -> predict label: getting_spare_card, true label: getting_virtual_card
+Can I use my card for payment all over the world? -> predict label: supported_cards_and_currencies, true label: card_acceptance
+It will be fine to use at any establishment that accepts Mastercard. -> predict label: visa_or_mastercard, true label: card_acceptance
+What stores can I sue my card? -> predict label: supported_cards_and_currencies, true label: card_acceptance
+I am traveling to Germany, Will I be able to use my card there? -> predict label: card_delivery_estimate, true label: card_acceptance
+What stores will take my credit card as payment? -> predict label: supported_cards_and_currencies, true label: card_acceptance
+areas card is accpeted -> predict label: declined_card_payment, true label: card_acceptance
+My top-up was cancelled; will I receive a refund? -> predict label: Refund_not_showing_up, true label: top_up_reverted
+My top-up showed as complete, but it's no longer there! What's going on here? -> predict label: pending_top_up, true label: top_up_reverted
+Hi, i don't know what's going on i've just paid for my top up twice by accident can you help me get a refund please. -> predict label: transaction_charged_twice, true label: top_up_reverted
+The app wouldn't accept my top up. -> predict label: topping_up_by_card, true label: top_up_reverted
+I believe my money did not go through with my top up, was there a problem on your end? -> predict label: top_up_failed, true label: top_up_reverted
+My top-up was reverted, why did this happen? -> predict label: top_up_failed, true label: top_up_reverted
+I put money into my account for the minimum balance but the application didn't accept. -> predict label: wrong_amount_of_cash_received, true label: top_up_reverted
+Can you tell me if my top-up has been cancelled? -> predict label: pending_top_up, true label: top_up_reverted
+Why would my top up be cancelled? -> predict label: pending_top_up, true label: top_up_reverted
+The application reverted my top-up. -> predict label: top_up_failed, true label: top_up_reverted
+I think my top-up was cancelled. -> predict label: top_up_failed, true label: top_up_reverted
+What happened to my top-up? -> predict label: top_up_failed, true label: top_up_reverted
+What happened to where my top-up was canceled? -> predict label: top_up_failed, true label: top_up_reverted
+I tryed to make a top-up with cryptocurrency but the payment was referted. -> predict label: beneficiary_not_allowed, true label: top_up_reverted
+I see my top-up was canceled, but why? -> predict label: top_up_failed, true label: top_up_reverted
+Do you know if my top-up has been cancelled? -> predict label: pending_top_up, true label: top_up_reverted
+has my top-up has been cancelled -> predict label: pending_top_up, true label: top_up_reverted
+My top-up was revoked. -> predict label: top_up_failed, true label: top_up_reverted
+Causes of top-up cancellation -> predict label: top_up_failed, true label: top_up_reverted
+Im very upset as my top-up was canceled and I have no idea why. -> predict label: top_up_failed, true label: top_up_reverted
+My top-up has been cancelled. -> predict label: top_up_failed, true label: top_up_reverted
+On my last transaction it seem that my top-up was not successful. -> predict label: top_up_failed, true label: top_up_reverted
+I'd like to know why my top-up was canceled please. -> predict label: top_up_failed, true label: top_up_reverted
+I made a deposit this morning but it is still pending? -> predict label: pending_card_payment, true label: balance_not_updated_after_cheque_or_cash_deposit
+I have paid money into my account but it doesn't show. -> predict label: balance_not_updated_after_bank_transfer, true label: balance_not_updated_after_cheque_or_cash_deposit
+Why does my account not accept cash deposits? -> predict label: declined_cash_withdrawal, true label: balance_not_updated_after_cheque_or_cash_deposit
+What happened to the cash that I tried to deposit into my account? It's gone! -> predict label: top_up_reverted, true label: balance_not_updated_after_cheque_or_cash_deposit
+There is a charge on my card that I did not make -> predict label: card_payment_fee_charged, true label: card_payment_not_recognised
+there is a transaction on my account that i didnt make -> predict label: compromised_card, true label: card_payment_not_recognised
+Can you freeze my account?  I just saw there are transactions on my account that I don't recognize.  How can I fix this? -> predict label: compromised_card, true label: card_payment_not_recognised
+Payment i did not do -> predict label: declined_card_payment, true label: card_payment_not_recognised
+I think my statement has a fraudulent charge -> predict label: request_refund, true label: card_payment_not_recognised
+What should I do to get transactions off of my account if I didn't make them?  My card must have been compromised and I need to freeze it asap! -> predict label: compromised_card, true label: card_payment_not_recognised
+I have an unauthorized transaction on my statement -> predict label: compromised_card, true label: card_payment_not_recognised
+I don't know where this transaction came from? -> predict label: compromised_card, true label: card_payment_not_recognised
+Somebody used my card to make a purchase -> predict label: direct_debit_payment_not_recognised, true label: card_payment_not_recognised
+There is a fraudulent charge on my statement. -> predict label: extra_charge_on_statement, true label: card_payment_not_recognised
+What is the payment in my account that I did not do? -> predict label: direct_debit_payment_not_recognised, true label: card_payment_not_recognised
+got married, need to change account name -> predict label: age_limit, true label: edit_personal_details
+got married and need to change name -> predict label: age_limit, true label: edit_personal_details
+Where can I go to modify my detail? -> predict label: change_pin, true label: edit_personal_details
+how do i change name? -> predict label: verify_my_identity, true label: edit_personal_details
+how to change name -> predict label: verify_my_identity, true label: edit_personal_details
+Should I just wait until the post office sends a change of address form? -> predict label: card_delivery_estimate, true label: edit_personal_details
+What is the need to verify my identity? -> predict label: verify_my_identity, true label: why_verify_identity
+Do I have to do the identity check? -> predict label: verify_my_identity, true label: why_verify_identity
+Do I have to do an identity check? -> predict label: verify_my_identity, true label: why_verify_identity
+I would like to not have to do the identity verification. -> predict label: verify_my_identity, true label: why_verify_identity
+What is the purpose for the identity check -> predict label: verify_my_identity, true label: why_verify_identity
+What is the point of an identity check? -> predict label: verify_my_identity, true label: why_verify_identity
+How come you need to know my identity? -> predict label: verify_my_identity, true label: why_verify_identity
+Why do I have to give you all of my identification details? -> predict label: unable_to_verify_identity, true label: why_verify_identity
+Since my id hasn't been verified, when can I use my account? -> predict label: unable_to_verify_identity, true label: why_verify_identity
+I won't verify my identity. -> predict label: unable_to_verify_identity, true label: why_verify_identity
+what is the identity check? -> predict label: verify_my_identity, true label: why_verify_identity
+What other methods are there to verify my identity? -> predict label: verify_my_identity, true label: why_verify_identity
+Why do you need to know so much about me -> predict label: verify_my_identity, true label: why_verify_identity
+I cannot verify my identity -> predict label: why_verify_identity, true label: unable_to_verify_identity
+Why doesn't the app believe I am who I say I am? -> predict label: verify_my_identity, true label: unable_to_verify_identity
+It is impossible to verify my identity -> predict label: why_verify_identity, true label: unable_to_verify_identity
+The app will not let me into my account. -> predict label: lost_or_stolen_phone, true label: unable_to_verify_identity
+How do I show this stupid system that this is really my identity? -> predict label: why_verify_identity, true label: unable_to_verify_identity
+app doesnt think its me -> predict label: cash_withdrawal_not_recognised, true label: unable_to_verify_identity
+I am having issues with identity verification -> predict label: why_verify_identity, true label: unable_to_verify_identity
+Why can't I verify my identity? -> predict label: why_verify_identity, true label: unable_to_verify_identity
+for some reason I am having a problem with verifying my identity. -> predict label: why_verify_identity, true label: unable_to_verify_identity
+where in the app can i find out about my new pin -> predict label: change_pin, true label: get_physical_card
+Am I allowed to use any card to make a payment? -> predict label: request_refund, true label: visa_or_mastercard
+What are the available cards? -> predict label: order_physical_card, true label: visa_or_mastercard
+Am I able to choose my card? -> predict label: card_acceptance, true label: visa_or_mastercard
+What major card payments are accepted? -> predict label: supported_cards_and_currencies, true label: visa_or_mastercard
+How can I top up my account with a card? -> predict label: top_up_by_cash_or_cheque, true label: topping_up_by_card
+WHERE IS MY MONEY I WAS USING MY CARD AND IT DISAPPEARED -> predict label: lost_or_stolen_card, true label: topping_up_by_card
+Can friends add to my account -> predict label: transfer_into_account, true label: topping_up_by_card
+Can I top up using my car? -> predict label: top_up_by_cash_or_cheque, true label: topping_up_by_card
+Use credit card to transfer money -> predict label: supported_cards_and_currencies, true label: topping_up_by_card
+How do my friends top up my account -> predict label: apple_pay_or_google_pay, true label: topping_up_by_card
+I followed the instructions to transfer money using my card, but then the money disappeared and I don't know what happened. -> predict label: failed_transfer, true label: topping_up_by_card
+Where's the money that got charged to my card? It's not showing up in my account balance -> predict label: top_up_reverted, true label: topping_up_by_card
+how can i top up? -> predict label: top_up_by_cash_or_cheque, true label: topping_up_by_card
+I am missing some funds from my account - I tried to transfer them using my credit card number, and it disappeared. -> predict label: top_up_reverted, true label: topping_up_by_card
+Can I give my friends access to my account so they can top it up for me? -> predict label: top_up_by_cash_or_cheque, true label: topping_up_by_card
+I did a top-up, but I'm not seeing it in my wallet yet. -> predict label: top_up_failed, true label: topping_up_by_card
+i know i entered the right info, but my top up isn't in my balance -> predict label: top_up_reverted, true label: topping_up_by_card
+Is there a way to transfer funds directly from my card? -> predict label: transfer_into_account, true label: topping_up_by_card
+How can someone add money to my account? -> predict label: transfer_into_account, true label: topping_up_by_card
+Are my friends able to add funds to my account? -> predict label: transfer_into_account, true label: topping_up_by_card
+Who can top up my accounts? -> predict label: top_up_by_cash_or_cheque, true label: topping_up_by_card
+Why can't I see the top-up amount I just added to my account? -> predict label: top_up_reverted, true label: topping_up_by_card
+How can i get multiple disposble cards. -> predict label: get_disposable_virtual_card, true label: disposable_card_limits
+Do these virtual cards have any caps on using them? -> predict label: getting_virtual_card, true label: disposable_card_limits
+What is the maximum number of transactions I can make with one card? -> predict label: order_physical_card, true label: disposable_card_limits
+How can I create many temporary cards daily? -> predict label: order_physical_card, true label: disposable_card_limits
+How many virtual cards do I get? -> predict label: getting_virtual_card, true label: disposable_card_limits
+What can I use a virtual disposable card for? -> predict label: get_disposable_virtual_card, true label: disposable_card_limits
+Can I freeze my card right now? -> predict label: lost_or_stolen_card, true label: compromised_card
+Freeze my account it's been hacked. -> predict label: lost_or_stolen_phone, true label: compromised_card
+Someone is using my account to do online shopping! Please freeze it asap -> predict label: lost_or_stolen_phone, true label: compromised_card
+What do I do if I think my card was improperly used? -> predict label: card_not_working, true label: compromised_card
+I think my identity has been stolen, can you check on unauthorized charges? -> predict label: unable_to_verify_identity, true label: compromised_card
+Can I use app to freeze account and dispute fraud? -> predict label: exchange_via_app, true label: compromised_card
+Someone has my card number, freeze my account. -> predict label: lost_or_stolen_card, true label: compromised_card
+I see random purchases to my account, was it hacked? -> predict label: cash_withdrawal_not_recognised, true label: compromised_card
+How do I freeze my card using the app? -> predict label: lost_or_stolen_card, true label: compromised_card
+My card has been compromised -> predict label: lost_or_stolen_card, true label: compromised_card
+How do I freeze my account? -> predict label: lost_or_stolen_phone, true label: compromised_card
+If I feel someone has my card information, can I get a new card? -> predict label: lost_or_stolen_card, true label: compromised_card
+I think someone copied the numbers on my card and is using them. -> predict label: passcode_forgotten, true label: compromised_card
+Can I use app to freeze my card and dispute fraud? -> predict label: cash_withdrawal_not_recognised, true label: compromised_card
+Someone else is using my card, freeze it. -> predict label: lost_or_stolen_card, true label: compromised_card
+Can I get cash with this card anywhere? -> predict label: card_acceptance, true label: atm_support
+what is this charge on my account -> predict label: extra_charge_on_statement, true label: direct_debit_payment_not_recognised
+im so mad right now. theres several charges that I think my x boyfriend made on my card. the companys on the website wouldn't refund me my money, they told me to contact my bank. DO something please. -> predict label: transaction_charged_twice, true label: direct_debit_payment_not_recognised
+someone stole my money -> predict label: compromised_card, true label: direct_debit_payment_not_recognised
+Even though it's late, I wanted to see about disputing a charge. I was just looking through my transactions over the past couple of months and noticed a pretty large amount that was not completed by me. Is this possibly something I can still do. -> predict label: transaction_charged_twice, true label: direct_debit_payment_not_recognised
+There was a transaction from two weeks ago from a business that I don't know. I'm fairly certain it wasn't me who made it, but is it an option to trace it to confirm? -> predict label: compromised_card, true label: direct_debit_payment_not_recognised
+There is a transaction from my account that I don't recognize can you trace back the information so I can make sure it's something I did or not? -> predict label: compromised_card, true label: direct_debit_payment_not_recognised
+I am seeing a weird payment showing up that I know I did not make, how can I get it cancelled? -> predict label: card_payment_not_recognised, true label: direct_debit_payment_not_recognised
+Can I dispute a payment even if I notice it several weeks after it was made? -> predict label: reverted_card_payment?, true label: direct_debit_payment_not_recognised
+I understand that this is extremely late. After going over my transactions for the last couple of months I noticed a large charge that I'm sure I did not make. Is there anyway I can still dispute this? -> predict label: transaction_charged_twice, true label: direct_debit_payment_not_recognised
+I am concerned about the security in my account and would like to make a dispute. -> predict label: unable_to_verify_identity, true label: direct_debit_payment_not_recognised
+Someone has taken my money and I don't know who -> predict label: compromised_card, true label: direct_debit_payment_not_recognised
+I was charged on my account that shouldn't be there. -> predict label: transaction_charged_twice, true label: direct_debit_payment_not_recognised
+Why was my account deducted from a seller when I didn't approve of it? -> predict label: reverted_card_payment?, true label: direct_debit_payment_not_recognised
+Can you tell me why you won't let me get my own money out of the money machine? I know I used the right PIN. -> predict label: pin_blocked, true label: declined_cash_withdrawal
+Why was my ATM transaction cancelled? -> predict label: transfer_not_received_by_recipient, true label: declined_cash_withdrawal
+The withdrawal was declined I am unsure as to why this happened? -> predict label: declined_card_payment, true label: declined_cash_withdrawal
+My ATM transaction was unsuccessful. -> predict label: wrong_amount_of_cash_received, true label: declined_cash_withdrawal
+I attempted to get cash but was declined. -> predict label: wrong_amount_of_cash_received, true label: declined_cash_withdrawal
+Why didn't the ATM give me my money? -> predict label: card_swallowed, true label: declined_cash_withdrawal
+My card payment is still on hold, why is it so? -> predict label: reverted_card_payment?, true label: pending_card_payment
+How do i finalize a card payment -> predict label: reverted_card_payment?, true label: pending_card_payment
+How long do card transactions take to clear? -> predict label: order_physical_card, true label: pending_card_payment
+what does pending mean? -> predict label: pending_top_up, true label: pending_card_payment
+My payment still hasn't processed! -> predict label: reverted_card_payment?, true label: pending_card_payment
+I was double charged, and the second charge is showing as "pending". How long will it be before I get my money back once the second charge has been refunded? -> predict label: transaction_charged_twice, true label: pending_card_payment
+My card is still pending, I've been waiting a while. -> predict label: pending_top_up, true label: pending_card_payment
+How long does it take to authorise a payment? -> predict label: transfer_timing, true label: pending_card_payment
+I had a payment that I made and it's been some amount of time and would like to know when it's suppose to go though. -> predict label: reverted_card_payment?, true label: pending_card_payment
+Can I still use the app if I switched phones? -> predict label: exchange_via_app, true label: lost_or_stolen_phone
+Someone stole my cards! -> predict label: lost_or_stolen_card, true label: lost_or_stolen_phone
+Hello- It is urgent I get a refund on this product. The merchant has not been helpful, what can I do now to get this resolved ASAP? -> predict label: Refund_not_showing_up, true label: request_refund
+I need to do a refund -> predict label: Refund_not_showing_up, true label: request_refund
+Can I have a refund? -> predict label: Refund_not_showing_up, true label: request_refund
+Hi there! I need to cancel an order I recently made and start processing a refund. Can you please help me with this and set up the refund as soon as possible? It's very urgent. -> predict label: Refund_not_showing_up, true label: request_refund
+I want a refund because my package has been taking too long to arrive. How do I go about doing that? -> predict label: Refund_not_showing_up, true label: request_refund
+How do I apply for a refund? -> predict label: Refund_not_showing_up, true label: request_refund
+What do I need to do to get a refund? -> predict label: Refund_not_showing_up, true label: request_refund
+I need a refund? -> predict label: Refund_not_showing_up, true label: request_refund
+How do I get refunded? -> predict label: Refund_not_showing_up, true label: request_refund
+How do I claim a refund? -> predict label: Refund_not_showing_up, true label: request_refund
+I am not Happy with this product can i get a refund? -> predict label: Refund_not_showing_up, true label: request_refund
+I want this amount reversed out of my account. -> predict label: wrong_amount_of_cash_received, true label: request_refund
+I would like to cancel a payment. I purchased something several days ago and i still have not received it. -> predict label: card_payment_not_recognised, true label: request_refund
+What's the refund process? -> predict label: Refund_not_showing_up, true label: request_refund
+Good morning. I tried to make a purchase with my credit card last night and again this morning. Both times it was declined. Can you investigate? -> predict label: transaction_charged_twice, true label: declined_transfer
+I am getting continuous failure for all my transfers. I have cross checked each recipient detail again and again and everything is correct. -> predict label: failed_transfer, true label: declined_transfer
+How can I fix my card, it got declined twice. -> predict label: declined_card_payment, true label: declined_transfer
+The card got declined twice when I tried to use it to buy something online yesterday. -> predict label: declined_card_payment, true label: declined_transfer
+How do I contact customer support about a transfer? -> predict label: transfer_timing, true label: declined_transfer
+Why was I unable to do a transfer? -> predict label: failed_transfer, true label: declined_transfer
+Trouble transferring transaction contact for help -> predict label: failed_transfer, true label: declined_transfer
+When I try and to buy something using my card it keeps getting declined. -> predict label: declined_card_payment, true label: declined_transfer
+Double check your funds may be declined -> predict label: declined_card_payment, true label: declined_transfer
+I can't transfer money from my account. -> predict label: transfer_into_account, true label: declined_transfer
+My card is being declined online. Could you tell me what might be broken or wrong with the account? -> predict label: declined_card_payment, true label: declined_transfer
+I was attempting to purchase a golf club off eBay yesterday, but my credit card was declined. I tried multiple times, and again this morning. Can you check into my card please? -> predict label: card_swallowed, true label: declined_transfer
+I was supposed to get a purchase refunded but I don't see the money in my account -> predict label: reverted_card_payment?, true label: Refund_not_showing_up
+I bought something and returned it and the money from the return isn't in my account. -> predict label: reverted_card_payment?, true label: Refund_not_showing_up
+It's been a week and I have done everything that I was asked to do and still nothing. I have contacted the seller and have not gotten a response. Please understand my frustration and put the money back in my account. -> predict label: transfer_not_received_by_recipient, true label: Refund_not_showing_up
+Why doesn't a return show up im my account from a purchase I made? -> predict label: reverted_card_payment?, true label: Refund_not_showing_up
+I am waiting patiently for a week now for the seller to get back to me and there has been no response, could you please help me further with getting my money back.  Thank you. -> predict label: reverted_card_payment?, true label: Refund_not_showing_up
+My latest payment was declined, I was told everything was back to working order. What happened? -> predict label: reverted_card_payment?, true label: declined_card_payment
+I'm really stuck. I don't know why but my card payment has not gone through. -> predict label: reverted_card_payment?, true label: declined_card_payment
+Why is my debit card being declined when I have money? -> predict label: direct_debit_payment_not_recognised, true label: declined_card_payment
+My card payment did not complete. -> predict label: reverted_card_payment?, true label: declined_card_payment
+My card didn't work in one of the shops. -> predict label: card_not_working, true label: declined_card_payment
+How do you fix  my card payment? -> predict label: reverted_card_payment?, true label: declined_card_payment
+How long for money transfer to show? -> predict label: transfer_timing, true label: pending_transfer
+Why is my transfer not done yet? -> predict label: balance_not_updated_after_bank_transfer, true label: pending_transfer
+How long can an EU transfer take? -> predict label: transfer_timing, true label: pending_transfer
+I transferred money yesterday, but it still isn't available? -> predict label: balance_not_updated_after_bank_transfer, true label: pending_transfer
+How long do transfer pend for? -> predict label: transfer_timing, true label: pending_transfer
+When will the transfer go through? -> predict label: transfer_timing, true label: pending_transfer
+When will my transfer go through? -> predict label: transfer_timing, true label: pending_transfer
+When will the transfer be completed? -> predict label: transfer_timing, true label: pending_transfer
+I would like to know why my payment is still pending, can you help? -> predict label: pending_card_payment, true label: pending_transfer
+Someone transferred money to me and it doesn't show -> predict label: transfer_not_received_by_recipient, true label: pending_transfer
+How long does a transfer take to be confirmed? -> predict label: transfer_timing, true label: pending_transfer
+How long can I expect a transfer to pend for? -> predict label: transfer_timing, true label: pending_transfer
+Why is a money transfer not showing? -> predict label: balance_not_updated_after_bank_transfer, true label: pending_transfer
+I am still waiting for a money transfer to show -> predict label: balance_not_updated_after_bank_transfer, true label: pending_transfer
+My transfer hasn't gone through yet. -> predict label: balance_not_updated_after_bank_transfer, true label: pending_transfer
+How long does it take for a money transfer to show? -> predict label: transfer_timing, true label: pending_transfer
+My account needs to be deleted. -> predict label: lost_or_stolen_phone, true label: terminate_account
+How do I get rid of my account ASAP? -> predict label: card_about_to_expire, true label: terminate_account
+I am extremely unhappy with this app and want to get rid of my account? -> predict label: lost_or_stolen_phone, true label: terminate_account
+Can you help me get rid of my account? -> predict label: lost_or_stolen_phone, true label: terminate_account
+This company sucks! Can you terminate my account? -> predict label: card_about_to_expire, true label: terminate_account
+How do I retrieve my card from the machine? -> predict label: lost_or_stolen_card, true label: card_swallowed
+I was retrieving money and my card wouldn't remove. -> predict label: card_payment_not_recognised, true label: card_swallowed
+How can I get my card back out? -> predict label: card_about_to_expire, true label: card_swallowed
+ATM still has my card -> predict label: declined_cash_withdrawal, true label: card_swallowed
+I was taking out funds and was unable to regain my card. -> predict label: topping_up_by_card, true label: card_swallowed
+WTF??? I tried to withdraw some money at a Metro bank on High St. Kensington and without any notice it disappeared in the machine. The bank was already closed so I couldn't do anything. How do I get it back? -> predict label: declined_cash_withdrawal, true label: card_swallowed
+I got double charged for a payment so how do I fix that? -> predict label: transfer_fee_charged, true label: transaction_charged_twice
+I've just come back from an eating holiday in the USA and Canada and have SO many pending and duplicated transactions on my account.  I think there is something wrong, can you look in to it please? -> predict label: pending_card_payment, true label: transaction_charged_twice
+I would like to know why I was charged twice for my purchase. -> predict label: extra_charge_on_statement, true label: transaction_charged_twice
+Why is there more then one charge on my card I only paid for one not twice how can I fix this? -> predict label: card_payment_fee_charged, true label: transaction_charged_twice
+It appears that I am being double charged for some items that I have purchased this past week.  Please review and correct. -> predict label: extra_charge_on_statement, true label: transaction_charged_twice
+It looks like this week I was double charged for a couple things. Is there any way that you can look into this for me and return the double charged items back to my card? -> predict label: extra_charge_on_statement, true label: transaction_charged_twice
+Please check payments on my card. There is a duplicate and I only bought it once. -> predict label: card_payment_not_recognised, true label: transaction_charged_twice
+I have a duplicate payment showing -> predict label: card_payment_not_recognised, true label: transaction_charged_twice
+My card is being declined for a purchase. I bought items before and the card worked. Do you know what the problem is? -> predict label: declined_card_payment, true label: reverted_card_payment?
+My credit card cancelled a payment for a purchase. -> predict label: request_refund, true label: reverted_card_payment?
+I am attempting to make a purchase online, but my card is not working.  I know there are funds available, is this an issue on the banks end? -> predict label: declined_card_payment, true label: reverted_card_payment?
+I bought something and the money appeared back into my account? Why? -> predict label: top_up_reverted, true label: reverted_card_payment?
+Hi, I would like to file a claim for an inquiry. I am a frequent customer of the company in question and have never had any issue with my purchases, payments, or otherwise. However, the price deducted for an item I purchased a couple of weeks ago has been returned to my checking account. Was there an issue with my payment? The item has already been delivered to me. -> predict label: request_refund, true label: reverted_card_payment?
+There was a canceled payment for my card. -> predict label: request_refund, true label: reverted_card_payment?
+May I receive a different card pin -> predict label: get_physical_card, true label: change_pin
+How do I update the PIN on my account? -> predict label: get_physical_card, true label: change_pin
+I've tried numerous times to submit a transfer of funds. Why isn't it going through? -> predict label: balance_not_updated_after_bank_transfer, true label: beneficiary_not_allowed
+I've transferred money before without issue but now I am encountering an error stating that it isn't possible. Why is that? -> predict label: failed_transfer, true label: beneficiary_not_allowed
+I was unable to make a transfer to another account. -> predict label: failed_transfer, true label: beneficiary_not_allowed
+I had a transfer blocked -> predict label: failed_transfer, true label: beneficiary_not_allowed
+How do I do a successful transfer to an account? -> predict label: transfer_timing, true label: beneficiary_not_allowed
+Why did I get a message saying that my transfer is not possible?  I have done this before no problem.  Please fix. -> predict label: failed_transfer, true label: beneficiary_not_allowed
+I tried to transfer money but it said it wasn't possible? I've done this before and it worked why isn't it working now? -> predict label: failed_transfer, true label: beneficiary_not_allowed
+Why isn't my transfer not going through? I keep getting an error message. -> predict label: failed_transfer, true label: beneficiary_not_allowed
+I have tried transferring money numerous times.  All I keep getting is an error message.  Can you tell me what is going on and how this van be fixed? -> predict label: failed_transfer, true label: beneficiary_not_allowed
+Why wasn't I able to transfer to another account? -> predict label: failed_transfer, true label: beneficiary_not_allowed
+How come I'm not allowed to transfer funds right now? I just keep getting an error message. -> predict label: failed_transfer, true label: beneficiary_not_allowed
+Why did I receive an error message saying that my transfer was not possible? -> predict label: failed_transfer, true label: beneficiary_not_allowed
+Why isn't my transfer going through? I get a message saying it's not possible. I've had no issues in the past. -> predict label: failed_transfer, true label: beneficiary_not_allowed
+The account transfer I was trying to do failed. -> predict label: failed_transfer, true label: beneficiary_not_allowed
+Can you help with a transfer to an account -> predict label: transfer_into_account, true label: beneficiary_not_allowed
+why isnt my account allowing transfers -> predict label: failed_transfer, true label: beneficiary_not_allowed
+Why was a charged just for transferring? -> predict label: top_up_by_bank_transfer_charge, true label: transfer_fee_charged
+Do charge fees for transfers? -> predict label: top_up_by_bank_transfer_charge, true label: transfer_fee_charged
+Hi,  Please help me, as i have transferred some amount but receiver did not get the same amount. He received a bit less. Due to this again i need to transfer the difference.   I have transferred money but beneficiary's account is credited with less amount. Now i have transfer the difference of the amount. I think there is some issue, could you please look into this. -> predict label: beneficiary_not_allowed, true label: transfer_fee_charged
+Why did I get charged for something I bought online? Even though it was international, I thought it would be covered. -> predict label: request_refund, true label: transfer_fee_charged
+Is there a transfer fee? -> predict label: top_up_by_bank_transfer_charge, true label: transfer_fee_charged
+I need someone to alert me as to what's going on. I had transferred an amount but the receiver is saying that the amount is somewhat less than what I sent over. I now have to make another transfer to make up the difference. -> predict label: balance_not_updated_after_bank_transfer, true label: transfer_fee_charged
+What extra charges are there? -> predict label: extra_charge_on_statement, true label: transfer_fee_charged
+I was charged for something I didn't expect -> predict label: transaction_charged_twice, true label: transfer_fee_charged
+Is GBP a supported currency? -> predict label: exchange_via_app, true label: receiving_money
+What are the ways for others to transfer me money? -> predict label: transfer_timing, true label: receiving_money
+What do I need to do to transfer my paycheck to my account? -> predict label: transfer_into_account, true label: receiving_money
+How do I deposit my paycheck to this account? -> predict label: request_refund, true label: receiving_money
+Can I get paid in another currency? -> predict label: exchange_charge, true label: receiving_money
+Can I get my paycheck through here? -> predict label: reverted_card_payment?, true label: receiving_money
+Can you help me figure out what's happening? I'm trying to transfer money to a friend but it keeps getting returned. I'm not sure what i'm doing wrong. -> predict label: transfer_not_received_by_recipient, true label: failed_transfer
+Why hasn't my transfer been made? -> predict label: balance_not_updated_after_bank_transfer, true label: failed_transfer
+What are your policies for card transfers? -> predict label: top_up_by_bank_transfer_charge, true label: failed_transfer
+I don't understand how to top up my account, can you please explain the process? -> predict label: topping_up_by_card, true label: transfer_into_account
+How do I top up my card? -> predict label: topping_up_by_card, true label: transfer_into_account
+I would like to use the bank transfer feature, but I can't find it. Can you please give me the details? -> predict label: balance_not_updated_after_bank_transfer, true label: transfer_into_account
+How do I do an international transfer? -> predict label: transfer_timing, true label: transfer_into_account
+How does a transfer work? -> predict label: failed_transfer, true label: transfer_into_account
+I would like use the bank transfer, but I don't understand the process, can you please explain, topping up? -> predict label: balance_not_updated_after_bank_transfer, true label: transfer_into_account
+How many cards can I have for one account? -> predict label: order_physical_card, true label: getting_spare_card
+Do you offer multiple cards for the same account? -> predict label: order_physical_card, true label: getting_spare_card
+Is there a fee for sending out more than one card? -> predict label: order_physical_card, true label: getting_spare_card
+Can I purchase extra non-virtual cards? -> predict label: getting_virtual_card, true label: getting_spare_card
+When trying to get more than one card is there a extra amount that needs to be paid? -> predict label: order_physical_card, true label: getting_spare_card
+My child needs a card, how can I add them to the account I currently have? -> predict label: age_limit, true label: getting_spare_card
+Need to deposit a cheque into my account -> predict label: balance_not_updated_after_cheque_or_cash_deposit, true label: top_up_by_cash_or_cheque
+How do I pay by check? -> predict label: atm_support, true label: top_up_by_cash_or_cheque
+What type of deposits do you accept into my account? -> predict label: fiat_currency_support, true label: top_up_by_cash_or_cheque
+What methods can I use to top up my account? -> predict label: supported_cards_and_currencies, true label: top_up_by_cash_or_cheque
+how come i can't find anywhere to load using cash -> predict label: declined_cash_withdrawal, true label: top_up_by_cash_or_cheque
+What can I pay with? Does cash work? -> predict label: top_up_by_card_charge, true label: top_up_by_cash_or_cheque
+How can I top-up my card? -> predict label: topping_up_by_card, true label: top_up_by_cash_or_cheque
+Can I submit a check or cash payment? -> predict label: request_refund, true label: top_up_by_cash_or_cheque
+Do you accept checks? -> predict label: verify_my_identity, true label: top_up_by_cash_or_cheque
+Where can I get my card at? -> predict label: card_acceptance, true label: order_physical_card
+Please, how do I order a card? -> predict label: getting_spare_card, true label: order_physical_card
+Is a non-electronic card available as well -> predict label: card_acceptance, true label: order_physical_card
+How much does it cost in fees to use your card? -> predict label: card_payment_fee_charged, true label: order_physical_card
+can I have a non virtual card? -> predict label: getting_virtual_card, true label: order_physical_card
+Where can my card be delivered? -> predict label: card_acceptance, true label: order_physical_card
+Where do I order my card? -> predict label: card_acceptance, true label: order_physical_card
+Where can I receive my card? -> predict label: card_acceptance, true label: order_physical_card
+Where will I find my card? -> predict label: card_delivery_estimate, true label: order_physical_card
+My non-physical card will not work -> predict label: card_not_working, true label: virtual_card_not_working
+Can I make multiple online transactions with my virtual card? -> predict label: getting_virtual_card, true label: virtual_card_not_working
+Is there a trick to get the disposable virtual card to work? -> predict label: get_disposable_virtual_card, true label: virtual_card_not_working
+My card is just not working at this time. -> predict label: card_not_working, true label: virtual_card_not_working
+How do I get my disposable virtual card to work? -> predict label: get_disposable_virtual_card, true label: virtual_card_not_working
+How do I make my virtual card work? -> predict label: getting_virtual_card, true label: virtual_card_not_working
+I took out money from a transaction machine and it exchanged the wrong dollar value amount from another currency! -> predict label: wrong_amount_of_cash_received, true label: wrong_exchange_rate_for_cash_withdrawal
+I made a withdraw from the ATM this past holiday and it seems like a was charged too much. If I would have   known about these charges I wouldn't have made a withdraw. -> predict label: wrong_amount_of_cash_received, true label: wrong_exchange_rate_for_cash_withdrawal
+Can you look to make sure the exchange rate is correct -> predict label: exchange_rate, true label: wrong_exchange_rate_for_cash_withdrawal
+A wrong exchange rate was applied to a transaction made abroad. -> predict label: card_payment_wrong_exchange_rate, true label: wrong_exchange_rate_for_cash_withdrawal
+The exchange rate you gave me for my cash withdrawal is wrong -> predict label: card_payment_wrong_exchange_rate, true label: wrong_exchange_rate_for_cash_withdrawal
+Is there a fee for exchanging cash? -> predict label: exchange_charge, true label: wrong_exchange_rate_for_cash_withdrawal
+Will there be additional costs of I make a withdrawal from a local ATM of British pounds? I need some cash to feel comfortable on the journey home -> predict label: cash_withdrawal_charge, true label: wrong_exchange_rate_for_cash_withdrawal
+It seems I was overcharged when I used an ATM while on vacation. If I knew about your fees in advance I sure would have gone somewhere else. -> predict label: transaction_charged_twice, true label: wrong_exchange_rate_for_cash_withdrawal
+Can I make a withdraw if I am out of country from with out any fees at an ATM? -> predict label: cash_withdrawal_charge, true label: wrong_exchange_rate_for_cash_withdrawal
+I feel like too much money was taken during my currency exchange. -> predict label: card_payment_wrong_exchange_rate, true label: wrong_exchange_rate_for_cash_withdrawal
+I withdrew some cash out of the ATM over the holiday. It seems that I was charged some outrageous fees. I would not have done that had I been aware of these outrageous charges! -> predict label: cash_withdrawal_charge, true label: wrong_exchange_rate_for_cash_withdrawal
+My ecchange rate was wrong for a cash transaction. -> predict label: card_payment_wrong_exchange_rate, true label: wrong_exchange_rate_for_cash_withdrawal
+The see the rate applied to my transaction was wrong at the atm. -> predict label: card_payment_wrong_exchange_rate, true label: wrong_exchange_rate_for_cash_withdrawal
+I used the ATM machine to get money out for Holiday shopping and saw the outrageous charges. Why is that? I would not have used the ATM if I had known! -> predict label: declined_cash_withdrawal, true label: wrong_exchange_rate_for_cash_withdrawal
+Is there a local ATM that will provide British pounds, I have no money for my homeward journey and do not feel comfortable waiting until  I arrive in Britain. Will a withdrawal involve extra charges? -> predict label: cash_withdrawal_charge, true label: wrong_exchange_rate_for_cash_withdrawal
+how do VR cards work -> predict label: getting_virtual_card, true label: get_disposable_virtual_card
+I would like a temporary virtual card -> predict label: getting_virtual_card, true label: get_disposable_virtual_card
+how do i get a virtual card for one time use -> predict label: getting_virtual_card, true label: get_disposable_virtual_card
+Can i get a single use virtual card -> predict label: getting_virtual_card, true label: get_disposable_virtual_card
+how does a virtual card work -> predict label: getting_virtual_card, true label: get_disposable_virtual_card
+Where can I get a disposable virtual card? -> predict label: disposable_card_limits, true label: get_disposable_virtual_card
+Can i get a throw away card -> predict label: getting_spare_card, true label: get_disposable_virtual_card
+how many transactions can i make with a disposable card -> predict label: disposable_card_limits, true label: get_disposable_virtual_card
+The app denied my topped up. -> predict label: top_up_reverted, true label: top_up_failed
+Why did the app deny my top up? -> predict label: top_up_reverted, true label: top_up_failed
+My funding to my card didn't go through. -> predict label: failed_transfer, true label: top_up_failed
+I topped up but the app did not accept it. -> predict label: top_up_reverted, true label: top_up_failed
+Can you tell me if my pop-up went through? -> predict label: pending_top_up, true label: top_up_failed
+The app won't let me top up my account -> predict label: topping_up_by_card, true label: top_up_failed
+Why can't I top up? -> predict label: topping_up_by_card, true label: top_up_failed
+I really need money from my card today, but my card is getting declined. Please help!! -> predict label: declined_card_payment, true label: top_up_failed
+How long will it take for my transferred money to show up? -> predict label: transfer_timing, true label: balance_not_updated_after_bank_transfer
+When will my balance update after a transfer? -> predict label: transfer_timing, true label: balance_not_updated_after_bank_transfer
+How long does it take for an international transfer into my account? -> predict label: transfer_timing, true label: balance_not_updated_after_bank_transfer
+When will my transfer be available in my account. -> predict label: transfer_timing, true label: balance_not_updated_after_bank_transfer
+I didn't get the money I transferred -> predict label: failed_transfer, true label: balance_not_updated_after_bank_transfer
+How long does a UK transfer take? -> predict label: transfer_timing, true label: balance_not_updated_after_bank_transfer
+I made a transfer and am still waiting. -> predict label: pending_transfer, true label: balance_not_updated_after_bank_transfer
+I made an out of country transfer and it hasn't went through yet. -> predict label: pending_transfer, true label: balance_not_updated_after_bank_transfer
+Why don't I have my transfer? -> predict label: failed_transfer, true label: balance_not_updated_after_bank_transfer
+How long until my transfer will be available to me -> predict label: transfer_timing, true label: balance_not_updated_after_bank_transfer
+My transfer is pending. -> predict label: pending_transfer, true label: balance_not_updated_after_bank_transfer
+Where is my transfer from [country]? -> predict label: transfer_timing, true label: balance_not_updated_after_bank_transfer
+Think someone has took money out with my card. What shall I do? -> predict label: compromised_card, true label: cash_withdrawal_not_recognised
+I didn't get cash from an ATM, but according to the app a transaction was made when i didn't make it. -> predict label: declined_cash_withdrawal, true label: cash_withdrawal_not_recognised
+How do I freeze my bank card, as there has been a strange withdrawal? -> predict label: declined_cash_withdrawal, true label: cash_withdrawal_not_recognised
+i think someone is using my card to withdraw money. Someone stole my wallet. What can I do? it is urgent. -> predict label: compromised_card, true label: cash_withdrawal_not_recognised
+My account has a weird withdrawal. -> predict label: declined_cash_withdrawal, true label: cash_withdrawal_not_recognised
+There is a odd withdrawal on my account. -> predict label: cash_withdrawal_charge, true label: cash_withdrawal_not_recognised
+I need to cancel my card that got stolen a little while ago. Someone has already taken some money out and I don't want them to take anymore. Can you please do that? -> predict label: card_payment_not_recognised, true label: cash_withdrawal_not_recognised
+How do I cancel my card? There are charges on my account that I didn't make. -> predict label: request_refund, true label: cash_withdrawal_not_recognised
+Can anyone help me, I lost my wallet and they've started withdrawing from my account. -> predict label: declined_cash_withdrawal, true label: cash_withdrawal_not_recognised
+What do I do if I notice a strange withdrawl in my statement? -> predict label: card_payment_not_recognised, true label: cash_withdrawal_not_recognised
+Help!  My wallet was stolen and someone is taking money out.  I need this money!  What can I do? -> predict label: lost_or_stolen_card, true label: cash_withdrawal_not_recognised
+There is a cash withdrawal transaction that I am unsure of. -> predict label: cash_withdrawal_charge, true label: cash_withdrawal_not_recognised
+There is a problem with my card. Somebody has removed money from my account in a town I haven't been to. Can you please freeze my account immediately? -> predict label: compromised_card, true label: cash_withdrawal_not_recognised
+whats your exchange rate -> predict label: exchange_rate, true label: exchange_charge
+Where do I find the exchange rate? -> predict label: exchange_rate, true label: exchange_charge
+how much you charge for exhcange -> predict label: transfer_fee_charged, true label: exchange_charge
+Are there fees for top ups? -> predict label: top_up_limits, true label: top_up_by_card_charge
+I just topped off my card will I be charged for it? -> predict label: top_up_by_cash_or_cheque, true label: top_up_by_card_charge
+What do you charge for top ups? -> predict label: top_up_limits, true label: top_up_by_card_charge
+Is it okay to use a bank card to top up -> predict label: topping_up_by_card, true label: top_up_by_card_charge
+Are there any fees for top ups? -> predict label: top_up_limits, true label: top_up_by_card_charge
+Is there a way my new card can be renewed? -> predict label: card_about_to_expire, true label: activate_my_card
+WHAT CAN I DO AFTER THE CARD MISSING -> predict label: lost_or_stolen_card, true label: activate_my_card
+I tried activating my bill of fare and it didn't workplace -> predict label: card_not_working, true label: activate_my_card
+How can I start using my card? -> predict label: card_acceptance, true label: activate_my_card
+How do I use my new card? -> predict label: card_linking, true label: activate_my_card
+Why did I get a fee? -> predict label: card_payment_fee_charged, true label: cash_withdrawal_charge
+Why did my cash get charged a fee that should not be there. -> predict label: card_payment_fee_charged, true label: cash_withdrawal_charge
+Why did I have to pay a fee when I got cash? -> predict label: card_payment_fee_charged, true label: cash_withdrawal_charge
+Why did I get charged a fee when I tried to obtain cash? -> predict label: card_payment_fee_charged, true label: cash_withdrawal_charge
+I took cash and got charged a fee -> predict label: card_payment_fee_charged, true label: cash_withdrawal_charge
+When I got cash, I'm pretty sure there was a glitch that overcharged me. -> predict label: top_up_reverted, true label: cash_withdrawal_charge
+Am I able to order a new card and have it sent to me in China? -> predict label: card_delivery_estimate, true label: card_about_to_expire
+Will you be able to send the new card to China? -> predict label: card_delivery_estimate, true label: card_about_to_expire
+how long and how much does it cost for new card -> predict label: contactless_not_working, true label: card_about_to_expire
+I will need to get a new card soon, how do I order? -> predict label: card_arrival, true label: card_about_to_expire
+going to need a new card what are the fees and time it takes -> predict label: order_physical_card, true label: card_about_to_expire
+in china, need new card -> predict label: card_linking, true label: card_about_to_expire
+How can I verify my indentity? -> predict label: beneficiary_not_allowed, true label: verify_my_identity
+I got a message that I need to verify my identity; what do I do? -> predict label: why_verify_identity, true label: verify_my_identity
+do the details of my profile have to match my documents -> predict label: edit_personal_details, true label: verify_my_identity
+When getting my ID checked, what are the steps involved? -> predict label: unable_to_verify_identity, true label: verify_my_identity
+Where do I need to live to get support? -> predict label: transfer_into_account, true label: country_support
+Please help me get a new card, I reside in the United States. -> predict label: card_delivery_estimate, true label: country_support
+Where can I find your locations? -> predict label: card_acceptance, true label: country_support
+What locations are you in? -> predict label: atm_support, true label: country_support
+I need a card, but I'm in the US at the moment. -> predict label: card_delivery_estimate, true label: country_support
+card_arrival                  0.625     [('card_arrival', 25), ('card_delivery_estimate', 10), ('lost_or_stolen_card', 4), ('why_verify_identity', 1)]
+card_linking                  0.825     [('card_linking', 33), ('lost_or_stolen_card', 3), ('card_arrival', 1), ('card_payment_not_recognised', 1), ('why_verify_identity', 1), ('getting_spare_card', 1)]
+exchange_rate                 0.950     [('exchange_rate', 38), ('exchange_charge', 1), ('fiat_currency_support', 1)]
+card_payment_wrong_exchange_rate0.875     [('card_payment_wrong_exchange_rate', 35), ('exchange_rate', 2), ('extra_charge_on_statement', 1), ('exchange_charge', 1), ('wrong_exchange_rate_for_cash_withdrawal', 1)]
+extra_charge_on_statement     0.825     [('extra_charge_on_statement', 33), ('card_payment_fee_charged', 2), ('pending_card_payment', 2), ('transfer_timing', 1), ('transaction_charged_twice', 1), ('transfer_not_received_by_recipient', 1)]
+pending_cash_withdrawal       0.825     [('pending_cash_withdrawal', 33), ('pending_card_payment', 3), ('cash_withdrawal_not_recognised', 1), ('cash_withdrawal_charge', 1), ('declined_cash_withdrawal', 1), ('atm_support', 1)]
+fiat_currency_support         0.675     [('fiat_currency_support', 27), ('exchange_charge', 8), ('exchange_via_app', 2), ('supported_cards_and_currencies', 2), ('reverted_card_payment?', 1)]
+card_delivery_estimate        0.825     [('card_delivery_estimate', 33), ('card_arrival', 3), ('lost_or_stolen_card', 1), ('why_verify_identity', 1), ('order_physical_card', 1), ('card_about_to_expire', 1)]
+automatic_top_up              0.700     [('automatic_top_up', 28), ('top_up_limits', 6), ('transfer_timing', 2), ('receiving_money', 1), ('transaction_charged_twice', 1), ('declined_cash_withdrawal', 1), ('apple_pay_or_google_pay', 1)]
+card_not_working              0.725     [('card_not_working', 29), ('card_swallowed', 2), ('lost_or_stolen_card', 2), ('card_about_to_expire', 1), ('pin_blocked', 1), ('declined_cash_withdrawal', 1), ('topping_up_by_card', 1), ('declined_card_payment', 1), ('transfer_not_received_by_recipient', 1), ('activate_my_card', 1)]
+exchange_via_app              0.600     [('exchange_via_app', 24), ('exchange_charge', 6), ('fiat_currency_support', 5), ('exchange_rate', 3), ('receiving_money', 2)]
+lost_or_stolen_card           0.975     [('lost_or_stolen_card', 39), ('unable_to_verify_identity', 1)]
+age_limit                     1.000     [('age_limit', 40)]
+pin_blocked                   0.750     [('pin_blocked', 30), ('get_physical_card', 5), ('change_pin', 3), ('lost_or_stolen_phone', 1), ('lost_or_stolen_card', 1)]
+contactless_not_working       0.925     [('contactless_not_working', 37), ('activate_my_card', 1), ('virtual_card_not_working', 1), ('reverted_card_payment?', 1)]
+top_up_by_bank_transfer_charge0.725     [('top_up_by_bank_transfer_charge', 29), ('card_payment_fee_charged', 3), ('transfer_fee_charged', 3), ('top_up_limits', 2), ('Refund_not_showing_up', 1), ('pending_transfer', 1), ('transfer_timing', 1)]
+pending_top_up                0.725     [('pending_top_up', 29), ('top_up_reverted', 5), ('top_up_failed', 4), ('top_up_limits', 1), ('topping_up_by_card', 1)]
+cancel_transfer               0.775     [('cancel_transfer', 31), ('transfer_not_received_by_recipient', 3), ('failed_transfer', 2), ('request_refund', 1), ('top_up_by_bank_transfer_charge', 1), ('pending_transfer', 1), ('reverted_card_payment?', 1)]
+top_up_limits                 0.975     [('top_up_limits', 39), ('order_physical_card', 1)]
+wrong_amount_of_cash_received 0.875     [('wrong_amount_of_cash_received', 35), ('declined_cash_withdrawal', 3), ('top_up_reverted', 1), ('transfer_not_received_by_recipient', 1)]
+card_payment_fee_charged      0.850     [('card_payment_fee_charged', 34), ('extra_charge_on_statement', 2), ('card_acceptance', 2), ('request_refund', 1), ('transfer_fee_charged', 1)]
+transfer_not_received_by_recipient0.400     [('transfer_not_received_by_recipient', 16), ('balance_not_updated_after_bank_transfer', 9), ('transfer_timing', 5), ('pending_transfer', 3), ('failed_transfer', 2), ('card_arrival', 2), ('pending_top_up', 1), ('cancel_transfer', 1), ('balance_not_updated_after_cheque_or_cash_deposit', 1)]
+supported_cards_and_currencies0.625     [('supported_cards_and_currencies', 25), ('fiat_currency_support', 7), ('getting_spare_card', 4), ('exchange_via_app', 2), ('top_up_limits', 1), ('country_support', 1)]
+getting_virtual_card          0.950     [('getting_virtual_card', 38), ('virtual_card_not_working', 1), ('getting_spare_card', 1)]
+card_acceptance               0.850     [('card_acceptance', 34), ('supported_cards_and_currencies', 3), ('visa_or_mastercard', 1), ('card_delivery_estimate', 1), ('declined_card_payment', 1)]
+top_up_reverted               0.425     [('top_up_reverted', 17), ('top_up_failed', 13), ('pending_top_up', 5), ('Refund_not_showing_up', 1), ('transaction_charged_twice', 1), ('topping_up_by_card', 1), ('wrong_amount_of_cash_received', 1), ('beneficiary_not_allowed', 1)]
+balance_not_updated_after_cheque_or_cash_deposit0.900     [('balance_not_updated_after_cheque_or_cash_deposit', 36), ('pending_card_payment', 1), ('balance_not_updated_after_bank_transfer', 1), ('declined_cash_withdrawal', 1), ('top_up_reverted', 1)]
+card_payment_not_recognised   0.725     [('card_payment_not_recognised', 29), ('compromised_card', 5), ('direct_debit_payment_not_recognised', 2), ('card_payment_fee_charged', 1), ('declined_card_payment', 1), ('request_refund', 1), ('extra_charge_on_statement', 1)]
+edit_personal_details         0.850     [('edit_personal_details', 34), ('age_limit', 2), ('verify_my_identity', 2), ('change_pin', 1), ('card_delivery_estimate', 1)]
+why_verify_identity           0.675     [('why_verify_identity', 27), ('verify_my_identity', 10), ('unable_to_verify_identity', 3)]
+unable_to_verify_identity     0.775     [('unable_to_verify_identity', 31), ('why_verify_identity', 6), ('verify_my_identity', 1), ('lost_or_stolen_phone', 1), ('cash_withdrawal_not_recognised', 1)]
+get_physical_card             0.975     [('get_physical_card', 39), ('change_pin', 1)]
+visa_or_mastercard            0.900     [('visa_or_mastercard', 36), ('request_refund', 1), ('order_physical_card', 1), ('card_acceptance', 1), ('supported_cards_and_currencies', 1)]
+topping_up_by_card            0.550     [('topping_up_by_card', 22), ('top_up_by_cash_or_cheque', 5), ('transfer_into_account', 4), ('top_up_reverted', 4), ('lost_or_stolen_card', 1), ('supported_cards_and_currencies', 1), ('apple_pay_or_google_pay', 1), ('failed_transfer', 1), ('top_up_failed', 1)]
+disposable_card_limits        0.850     [('disposable_card_limits', 34), ('get_disposable_virtual_card', 2), ('getting_virtual_card', 2), ('order_physical_card', 2)]
+compromised_card              0.625     [('compromised_card', 25), ('lost_or_stolen_card', 6), ('lost_or_stolen_phone', 3), ('cash_withdrawal_not_recognised', 2), ('card_not_working', 1), ('unable_to_verify_identity', 1), ('exchange_via_app', 1), ('passcode_forgotten', 1)]
+atm_support                   0.975     [('atm_support', 39), ('card_acceptance', 1)]
+direct_debit_payment_not_recognised0.675     [('direct_debit_payment_not_recognised', 27), ('transaction_charged_twice', 4), ('compromised_card', 4), ('reverted_card_payment?', 2), ('extra_charge_on_statement', 1), ('card_payment_not_recognised', 1), ('unable_to_verify_identity', 1)]
+passcode_forgotten            1.000     [('passcode_forgotten', 40)]
+declined_cash_withdrawal      0.850     [('declined_cash_withdrawal', 34), ('wrong_amount_of_cash_received', 2), ('pin_blocked', 1), ('transfer_not_received_by_recipient', 1), ('declined_card_payment', 1), ('card_swallowed', 1)]
+pending_card_payment          0.775     [('pending_card_payment', 31), ('reverted_card_payment?', 4), ('pending_top_up', 2), ('order_physical_card', 1), ('transaction_charged_twice', 1), ('transfer_timing', 1)]
+lost_or_stolen_phone          0.950     [('lost_or_stolen_phone', 38), ('exchange_via_app', 1), ('lost_or_stolen_card', 1)]
+request_refund                0.650     [('request_refund', 26), ('Refund_not_showing_up', 12), ('wrong_amount_of_cash_received', 1), ('card_payment_not_recognised', 1)]
+declined_transfer             0.700     [('declined_transfer', 28), ('declined_card_payment', 5), ('failed_transfer', 3), ('transaction_charged_twice', 1), ('transfer_timing', 1), ('transfer_into_account', 1), ('card_swallowed', 1)]
+Refund_not_showing_up         0.875     [('Refund_not_showing_up', 35), ('reverted_card_payment?', 4), ('transfer_not_received_by_recipient', 1)]
+declined_card_payment         0.850     [('declined_card_payment', 34), ('reverted_card_payment?', 4), ('direct_debit_payment_not_recognised', 1), ('card_not_working', 1)]
+pending_transfer              0.600     [('pending_transfer', 24), ('transfer_timing', 9), ('balance_not_updated_after_bank_transfer', 5), ('pending_card_payment', 1), ('transfer_not_received_by_recipient', 1)]
+terminate_account             0.875     [('terminate_account', 35), ('lost_or_stolen_phone', 3), ('card_about_to_expire', 2)]
+card_swallowed                0.850     [('card_swallowed', 34), ('declined_cash_withdrawal', 2), ('lost_or_stolen_card', 1), ('card_payment_not_recognised', 1), ('card_about_to_expire', 1), ('topping_up_by_card', 1)]
+transaction_charged_twice     0.800     [('transaction_charged_twice', 32), ('extra_charge_on_statement', 3), ('card_payment_not_recognised', 2), ('transfer_fee_charged', 1), ('pending_card_payment', 1), ('card_payment_fee_charged', 1)]
+verify_source_of_funds        1.000     [('verify_source_of_funds', 40)]
+transfer_timing               1.000     [('transfer_timing', 40)]
+reverted_card_payment?        0.850     [('reverted_card_payment?', 34), ('request_refund', 3), ('declined_card_payment', 2), ('top_up_reverted', 1)]
+change_pin                    0.950     [('change_pin', 38), ('get_physical_card', 2)]
+beneficiary_not_allowed       0.600     [('beneficiary_not_allowed', 24), ('failed_transfer', 13), ('balance_not_updated_after_bank_transfer', 1), ('transfer_timing', 1), ('transfer_into_account', 1)]
+transfer_fee_charged          0.800     [('transfer_fee_charged', 32), ('top_up_by_bank_transfer_charge', 3), ('beneficiary_not_allowed', 1), ('request_refund', 1), ('balance_not_updated_after_bank_transfer', 1), ('extra_charge_on_statement', 1), ('transaction_charged_twice', 1)]
+receiving_money               0.850     [('receiving_money', 34), ('exchange_via_app', 1), ('transfer_timing', 1), ('transfer_into_account', 1), ('request_refund', 1), ('exchange_charge', 1), ('reverted_card_payment?', 1)]
+failed_transfer               0.925     [('failed_transfer', 37), ('transfer_not_received_by_recipient', 1), ('balance_not_updated_after_bank_transfer', 1), ('top_up_by_bank_transfer_charge', 1)]
+transfer_into_account         0.850     [('transfer_into_account', 34), ('topping_up_by_card', 2), ('balance_not_updated_after_bank_transfer', 2), ('transfer_timing', 1), ('failed_transfer', 1)]
+verify_top_up                 1.000     [('verify_top_up', 40)]
+getting_spare_card            0.850     [('getting_spare_card', 34), ('order_physical_card', 4), ('getting_virtual_card', 1), ('age_limit', 1)]
+top_up_by_cash_or_cheque      0.775     [('top_up_by_cash_or_cheque', 31), ('balance_not_updated_after_cheque_or_cash_deposit', 1), ('atm_support', 1), ('fiat_currency_support', 1), ('supported_cards_and_currencies', 1), ('declined_cash_withdrawal', 1), ('top_up_by_card_charge', 1), ('topping_up_by_card', 1), ('request_refund', 1), ('verify_my_identity', 1)]
+order_physical_card           0.775     [('order_physical_card', 31), ('card_acceptance', 5), ('getting_spare_card', 1), ('card_payment_fee_charged', 1), ('getting_virtual_card', 1), ('card_delivery_estimate', 1)]
+virtual_card_not_working      0.850     [('virtual_card_not_working', 34), ('card_not_working', 2), ('getting_virtual_card', 2), ('get_disposable_virtual_card', 2)]
+wrong_exchange_rate_for_cash_withdrawal0.625     [('wrong_exchange_rate_for_cash_withdrawal', 25), ('card_payment_wrong_exchange_rate', 5), ('cash_withdrawal_charge', 4), ('wrong_amount_of_cash_received', 2), ('exchange_rate', 1), ('exchange_charge', 1), ('transaction_charged_twice', 1), ('declined_cash_withdrawal', 1)]
+get_disposable_virtual_card   0.800     [('get_disposable_virtual_card', 32), ('getting_virtual_card', 5), ('disposable_card_limits', 2), ('getting_spare_card', 1)]
+top_up_failed                 0.800     [('top_up_failed', 32), ('top_up_reverted', 3), ('topping_up_by_card', 2), ('failed_transfer', 1), ('pending_top_up', 1), ('declined_card_payment', 1)]
+balance_not_updated_after_bank_transfer0.700     [('balance_not_updated_after_bank_transfer', 28), ('transfer_timing', 7), ('pending_transfer', 3), ('failed_transfer', 2)]
+cash_withdrawal_not_recognised0.675     [('cash_withdrawal_not_recognised', 27), ('declined_cash_withdrawal', 4), ('compromised_card', 3), ('cash_withdrawal_charge', 2), ('card_payment_not_recognised', 2), ('request_refund', 1), ('lost_or_stolen_card', 1)]
+exchange_charge               0.925     [('exchange_charge', 37), ('exchange_rate', 2), ('transfer_fee_charged', 1)]
+top_up_by_card_charge         0.875     [('top_up_by_card_charge', 35), ('top_up_limits', 3), ('top_up_by_cash_or_cheque', 1), ('topping_up_by_card', 1)]
+activate_my_card              0.875     [('activate_my_card', 35), ('card_about_to_expire', 1), ('lost_or_stolen_card', 1), ('card_not_working', 1), ('card_acceptance', 1), ('card_linking', 1)]
+cash_withdrawal_charge        0.850     [('cash_withdrawal_charge', 34), ('card_payment_fee_charged', 5), ('top_up_reverted', 1)]
+card_about_to_expire          0.850     [('card_about_to_expire', 34), ('card_delivery_estimate', 2), ('contactless_not_working', 1), ('card_arrival', 1), ('order_physical_card', 1), ('card_linking', 1)]
+apple_pay_or_google_pay       1.000     [('apple_pay_or_google_pay', 40)]
+verify_my_identity            0.900     [('verify_my_identity', 36), ('beneficiary_not_allowed', 1), ('why_verify_identity', 1), ('edit_personal_details', 1), ('unable_to_verify_identity', 1)]
+country_support               0.875     [('country_support', 35), ('card_delivery_estimate', 2), ('transfer_into_account', 1), ('card_acceptance', 1), ('atm_support', 1)]
+test_acc = 0.8097402597402598
