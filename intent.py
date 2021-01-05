@@ -49,17 +49,16 @@ def validation(model, device, valid_loader):
             attention_mask = data['attention_mask'].to(device)
             token_type_ids = data['token_type_ids'].to(device)
             labels = data['labels'].to(device)
-            outputs = model(input_ids, attention_mask=attention_mask, token_type_ids = token_type_ids,intent_label=labels, device=device)
+            outputs = model(input_ids, attention_mask=attention_mask, token_type_ids = token_type_ids, device=device)
             loss = outputs[1]
             loss_total += loss
             predicted = torch.argmax(outputs[0], 1)
             total += labels.size(0)
             hit += (predicted == labels).sum().item()
-    print('vala_acc = {}'.format(hit/total))
-    #return loss_total / len(valid_loader)
-    return hit/total
+    print('val_loss = {}'.format(loss_total/len(valid_loader)),'vala_acc = {}'.format(hit/total))
+    return loss_total / len(valid_loader), hit/total
 print(sys.argv[1])
-train_data_file = "./data/" + sys.argv[1] + "/train.csv"
+train_data_file = "./data/" + sys.argv[1] + "/" + sys.argv[2]
 test_data_file = "./data/" + sys.argv[1] +"/test.csv"
 val_data_file = "./data/" + sys.argv[1] + "/val.csv"
 category_list = "./data/" + sys.argv[1] + "/categories.json" 
@@ -109,10 +108,11 @@ the_min_loss = 100
 patience = 10
 trigger_times = 0
 candid = 1
-for epoch in range(100):
+warm_up = 50
+for epoch in range(500):
     train_loss = 0
     model.train()
-    for batch in tqdm(train_loader):
+    for batch in train_loader:
         optim.zero_grad()
         input_ids = batch['input_ids'].to(device)
         attention_mask = batch['attention_mask'].to(device)
@@ -123,8 +123,10 @@ for epoch in range(100):
         train_loss += loss
         loss.backward()
         optim.step()
-    the_current_acc = validation(model, device, val_loader)
-    print('the_current_acc:', the_current_acc)
+        #sys.exit(0)
+    print('train loss:', train_loss/len(train_loader))
+    #sys.exit(0)
+    the_current_loss, the_current_acc = validation(model, device, val_loader)
     if the_current_acc < the_max_acc:
         trigger_times +=1
         print('trigger times:',trigger_times)
