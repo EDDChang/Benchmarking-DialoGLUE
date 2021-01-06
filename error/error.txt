@@ -1,0 +1,89 @@
+banking
+test
+card_arrival        0.600  [('card_arrival', 24), ('card_delivery_estimate', 8), ('lost_or_stolen_card', 5), ('request_refund', 2), ('declined_card_payment', 1)]
+card_linking        0.775  [('card_linking', 31), ('lost_or_stolen_card', 2), ('card_arrival', 2), ('virtual_card_not_working', 1), ('activate_my_card', 1), ('lost_or_stolen_phone', 1), ('topping_up_by_card', 1), ('getting_spare_card', 1)]
+exchange_rate       0.950  [('exchange_rate', 38), ('exchange_charge', 1), ('fiat_currency_support', 1)]
+card_payment_wrong_exchange_rate0.750  [('card_payment_wrong_exchange_rate', 30), ('wrong_exchange_rate_for_cash_withdrawal', 5), ('exchange_rate', 3), ('extra_charge_on_statement', 1), ('card_payment_fee_charged', 1)]
+extra_charge_on_statement0.825  [('extra_charge_on_statement', 33), ('card_payment_fee_charged', 2), ('wrong_amount_of_cash_received', 1), ('card_payment_not_recognised', 1), ('transfer_not_received_by_recipient', 1), ('top_up_by_bank_transfer_charge', 1), ('pending_card_payment', 1)]
+pending_cash_withdrawal0.775  [('pending_cash_withdrawal', 31), ('cash_withdrawal_charge', 3), ('pending_card_payment', 2), ('balance_not_updated_after_cheque_or_cash_deposit', 1), ('cash_withdrawal_not_recognised', 1), ('declined_cash_withdrawal', 1), ('atm_support', 1)]
+fiat_currency_support0.675  [('fiat_currency_support', 27), ('exchange_via_app', 5), ('exchange_charge', 5), ('pending_card_payment', 1), ('supported_cards_and_currencies', 1), ('country_support', 1)]
+card_delivery_estimate0.775  [('card_delivery_estimate', 31), ('lost_or_stolen_card', 5), ('card_arrival', 3), ('order_physical_card', 1)]
+automatic_top_up    0.675  [('automatic_top_up', 27), ('topping_up_by_card', 9), ('top_up_by_bank_transfer_charge', 1), ('transfer_timing', 1), ('top_up_by_card_charge', 1), ('top_up_limits', 1)]
+card_not_working    0.675  [('card_not_working', 27), ('lost_or_stolen_card', 6), ('declined_card_payment', 3), ('declined_cash_withdrawal', 1), ('pin_blocked', 1), ('direct_debit_payment_not_recognised', 1), ('activate_my_card', 1)]
+exchange_via_app    0.850  [('exchange_via_app', 34), ('exchange_charge', 3), ('fiat_currency_support', 2), ('country_support', 1)]
+lost_or_stolen_card 0.900  [('lost_or_stolen_card', 36), ('compromised_card', 2), ('verify_my_identity', 1), ('topping_up_by_card', 1)]
+age_limit           1.000  [('age_limit', 40)]
+pin_blocked         0.700  [('pin_blocked', 28), ('get_physical_card', 9), ('lost_or_stolen_phone', 1), ('terminate_account', 1), ('lost_or_stolen_card', 1)]
+contactless_not_working0.900  [('contactless_not_working', 36), ('verify_my_identity', 1), ('card_not_working', 1), ('top_up_by_card_charge', 1), ('reverted_card_payment?', 1)]
+top_up_by_bank_transfer_charge0.800  [('top_up_by_bank_transfer_charge', 32), ('transfer_fee_charged', 4), ('top_up_by_card_charge', 1), ('top_up_by_cash_or_cheque', 1), ('card_payment_fee_charged', 1), ('top_up_limits', 1)]
+pending_top_up      0.750  [('pending_top_up', 30), ('top_up_failed', 5), ('top_up_reverted', 2), ('pending_cash_withdrawal', 1), ('balance_not_updated_after_cheque_or_cash_deposit', 1), ('topping_up_by_card', 1)]
+cancel_transfer     0.825  [('cancel_transfer', 33), ('direct_debit_payment_not_recognised', 2), ('card_payment_not_recognised', 2), ('reverted_card_payment?', 2), ('Refund_not_showing_up', 1)]
+top_up_limits       0.950  [('top_up_limits', 38), ('top_up_by_card_charge', 1), ('disposable_card_limits', 1)]
+wrong_amount_of_cash_received0.850  [('wrong_amount_of_cash_received', 34), ('declined_cash_withdrawal', 3), ('cash_withdrawal_not_recognised', 2), ('declined_card_payment', 1)]
+card_payment_fee_charged0.850  [('card_payment_fee_charged', 34), ('top_up_by_card_charge', 2), ('extra_charge_on_statement', 1), ('transaction_charged_twice', 1), ('card_payment_not_recognised', 1), ('card_acceptance', 1)]
+transfer_not_received_by_recipient0.425  [('transfer_not_received_by_recipient', 17), ('balance_not_updated_after_bank_transfer', 9), ('cancel_transfer', 5), ('transfer_timing', 5), ('failed_transfer', 2), ('pending_transfer', 2)]
+supported_cards_and_currencies0.600  [('supported_cards_and_currencies', 24), ('fiat_currency_support', 7), ('getting_spare_card', 3), ('topping_up_by_card', 2), ('country_support', 2), ('top_up_by_card_charge', 1), ('exchange_via_app', 1)]
+getting_virtual_card0.975  [('getting_virtual_card', 39), ('card_arrival', 1)]
+card_acceptance     0.775  [('card_acceptance', 31), ('supported_cards_and_currencies', 2), ('visa_or_mastercard', 1), ('terminate_account', 1), ('card_not_working', 1), ('card_delivery_estimate', 1), ('topping_up_by_card', 1), ('top_up_by_card_charge', 1), ('atm_support', 1)]
+top_up_reverted     0.200  [('top_up_failed', 20), ('top_up_reverted', 8), ('topping_up_by_card', 5), ('pending_top_up', 5), ('transfer_not_received_by_recipient', 1), ('beneficiary_not_allowed', 1)]
+balance_not_updated_after_cheque_or_cash_deposit0.900  [('balance_not_updated_after_cheque_or_cash_deposit', 36), ('pending_card_payment', 1), ('transfer_not_received_by_recipient', 1), ('cash_withdrawal_not_recognised', 1), ('top_up_reverted', 1)]
+card_payment_not_recognised0.650  [('card_payment_not_recognised', 26), ('direct_debit_payment_not_recognised', 6), ('compromised_card', 4), ('reverted_card_payment?', 3), ('transfer_not_received_by_recipient', 1)]
+edit_personal_details0.875  [('edit_personal_details', 35), ('change_pin', 3), ('verify_my_identity', 1), ('card_arrival', 1)]
+why_verify_identity 0.650  [('why_verify_identity', 26), ('verify_my_identity', 11), ('unable_to_verify_identity', 3)]
+unable_to_verify_identity0.550  [('unable_to_verify_identity', 22), ('why_verify_identity', 9), ('verify_my_identity', 5), ('lost_or_stolen_phone', 3), ('passcode_forgotten', 1)]
+get_physical_card   0.975  [('get_physical_card', 39), ('change_pin', 1)]
+visa_or_mastercard  0.900  [('visa_or_mastercard', 36), ('reverted_card_payment?', 1), ('getting_spare_card', 1), ('card_acceptance', 1), ('supported_cards_and_currencies', 1)]
+topping_up_by_card  0.775  [('topping_up_by_card', 31), ('transfer_into_account', 2), ('lost_or_stolen_card', 1), ('top_up_by_cash_or_cheque', 1), ('top_up_reverted', 1), [?1049h[22;0;0t[>4;2m[?1h=[?2004h[?12h[?12l[27m[23m[29m[m[38;5;252m[48;5;234m[H[2J[?25l[1;1H[38;5;208m[48;5;235m  1 [m[38;5;252m[48;5;234m[38;5;197m[48;5;236mimport[m[38;5;252m[48;5;234m[48;5;236m sys                                                                                                                                                                                              [m[38;5;252m[48;5;234m[2;1H[38;5;243m[48;5;235m  2 [m[38;5;252m[48;5;234m[38;5;197mfrom[m[38;5;252m[48;5;234m transformers [38;5;197mimport[m[38;5;252m[48;5;234m AdamW
+[38;5;243m[48;5;235m  3 [m[38;5;252m[48;5;234m[38;5;197mfrom[m[38;5;252m[48;5;234m transformers [38;5;197mimport[m[38;5;252m[48;5;234m BertTokenizer
+[38;5;243m[48;5;235m  4 [m[38;5;252m[48;5;234m[38;5;197mimport[m[38;5;252m[48;5;234m torch
+[38;5;243m[48;5;235m  5 [m[38;5;252m[48;5;234m[38;5;197mimport[m[38;5;252m[48;5;234m csv
+[38;5;243m[48;5;235m  6 [m[38;5;252m[48;5;234m[38;5;197mimport[m[38;5;252m[48;5;234m json
+[38;5;243m[48;5;235m  7 [m[38;5;252m[48;5;234m[38;5;197mfrom[m[38;5;252m[48;5;234m torch.utils.data [38;5;197mimport[m[38;5;252m[48;5;234m DataLoader
+[38;5;243m[48;5;235m  8 [m[38;5;252m[48;5;234m[38;5;197mfrom[m[38;5;252m[48;5;234m transformers [38;5;197mimport[m[38;5;252m[48;5;234m BertForSequenceClassification
+[38;5;243m[48;5;235m  9 [m[38;5;252m[48;5;234m[38;5;197mfrom[m[38;5;252m[48;5;234m sklearn.model_selection [38;5;197mimport[m[38;5;252m[48;5;234m train_test_split
+[38;5;243m[48;5;235m 10 [m[38;5;252m[48;5;234m[38;5;197mfrom[m[38;5;252m[48;5;234m tqdm [38;5;197mimport[m[38;5;252m[48;5;234m tqdm
+[38;5;243m[48;5;235m 11 [m[38;5;252m[48;5;234m[38;5;197mimport[m[38;5;252m[48;5;234m torch.nn [38;5;197mas[m[38;5;252m[48;5;234m nn
+[38;5;243m[48;5;235m 12 [m[38;5;252m[48;5;234m[38;5;197mfrom[m[38;5;252m[48;5;234m transformers [38;5;197mimport[m[38;5;252m[48;5;234m Trainer, TrainingArguments
+[38;5;243m[48;5;235m 13 [m[38;5;252m[48;5;234m[38;5;197mfrom[m[38;5;252m[48;5;234m bert_models [38;5;197mimport[m[38;5;252m[48;5;234m IntentBertModel
+[38;5;243m[48;5;235m 14 
+ 15 [m[38;5;252m[48;5;234m[38;5;197mclass[m[38;5;252m[48;5;234m [38;5;148mdataset[m[38;5;252m[48;5;234m(torch.utils.data.Dataset):
+[38;5;243m[48;5;235m 16 [m[38;5;252m[48;5;234m    [38;5;197mdef[m[38;5;252m[48;5;234m [38;5;148m__init__[m[38;5;252m[48;5;234m(self, encodings, labels):
+[38;5;243m[48;5;235m 17 [m[38;5;252m[48;5;234m[8Cself.encodings = encodings
+[38;5;243m[48;5;235m 18 [m[38;5;252m[48;5;234m[8Cself.labels = labels
+[38;5;243m[48;5;235m 19 
+ 20 [m[38;5;252m[48;5;234m    [38;5;197mdef[m[38;5;252m[48;5;234m [38;5;148m__getitem__[m[38;5;252m[48;5;234m(self, idx):
+[38;5;243m[48;5;235m 21 [m[38;5;252m[48;5;234m[8Citem = {key: torch.tensor(val[idx]) [38;5;197mfor[m[38;5;252m[48;5;234m key, val [38;5;197min[m[38;5;252m[48;5;234m self.encodings.items()}
+[38;5;243m[48;5;235m 22 [m[38;5;252m[48;5;234m[8Citem[[38;5;186m'labels'[m[38;5;252m[48;5;234m] = torch.tensor(self.labels[idx])
+[38;5;243m[48;5;235m 23 [m[38;5;252m[48;5;234m[8C[38;5;197mreturn[m[38;5;252m[48;5;234m item
+[38;5;243m[48;5;235m 24 
+ 25 [m[38;5;252m[48;5;234m    [38;5;197mdef[m[38;5;252m[48;5;234m [38;5;148m__len__[m[38;5;252m[48;5;234m(self):
+[38;5;243m[48;5;235m 26 [m[38;5;252m[48;5;234m[8C[38;5;197mreturn[m[38;5;252m[48;5;234m [38;5;252mlen[m[38;5;252m[48;5;234m(self.labels)
+[38;5;243m[48;5;235m 27 
+ 28 [m[38;5;252m[48;5;234mcategories = []
+[38;5;243m[48;5;235m 29 
+ 30 [m[38;5;252m[48;5;234m[38;5;197mdef[m[38;5;252m[48;5;234m [38;5;148mread_split[m[38;5;252m[48;5;234m(path):
+[38;5;243m[48;5;235m 31 [m[38;5;252m[48;5;234m    texts = []
+[38;5;243m[48;5;235m 32 [m[38;5;252m[48;5;234m    labels = []
+[38;5;243m[48;5;235m 33 [m[38;5;252m[48;5;234m    [38;5;197mwith[m[38;5;252m[48;5;234m [38;5;252mopen[m[38;5;252m[48;5;234m(path, newline = [38;5;186m''[m[38;5;252m[48;5;234m) [38;5;197mas[m[38;5;252m[48;5;234m csvfile:
+[38;5;243m[48;5;235m 34 [m[38;5;252m[48;5;234m[8Crows = csv.reader(csvfile)
+[38;5;243m[48;5;235m 35 [m[38;5;252m[48;5;234m[8C[38;5;197mfor[m[38;5;252m[48;5;234m row [38;5;197min[m[38;5;252m[48;5;234m rows:
+[38;5;243m[48;5;235m 36 [m[38;5;252m[48;5;234m[12C[38;5;197mif[m[38;5;252m[48;5;234m row[[38;5;141m1[m[38;5;252m[48;5;234m] != [38;5;186m'category'[m[38;5;252m[48;5;234m:
+[38;5;243m[48;5;235m 37 [m[38;5;252m[48;5;234m[16Ctexts.append(row[[38;5;141m0[m[38;5;252m[48;5;234m])
+[38;5;243m[48;5;235m 38 [m[38;5;252m[48;5;234m[16Clabels.append(cateTonum[row[[38;5;141m1[m[38;5;252m[48;5;234m]])
+[38;5;243m[48;5;235m 39 [m[38;5;252m[48;5;234m    [38;5;197mreturn[m[38;5;252m[48;5;234m texts, labels
+[38;5;243m[48;5;235m 40 
+ 41 [m[38;5;252m[48;5;234m[38;5;197mdef[m[38;5;252m[48;5;234m [38;5;148mvalidation[m[38;5;252m[48;5;234m(model, device, valid_loader):
+[38;5;243m[48;5;235m 42 [m[38;5;252m[48;5;234m    model.eval()
+[38;5;243m[48;5;235m 43 [m[38;5;252m[48;5;234m    loss_total = [38;5;141m0[m[38;5;252m[48;5;234m
+[38;5;243m[48;5;235m 44 [m[38;5;252m[48;5;234m    total = [38;5;141m0[m[38;5;252m[48;5;234m
+[38;5;243m[48;5;235m 45 [m[38;5;252m[48;5;234m    hit = [38;5;141m0[m[38;5;252m[48;5;234m
+[38;5;243m[48;5;235m 46 [m[38;5;252m[48;5;234m    [38;5;197mwith[m[38;5;252m[48;5;234m torch.no_grad():
+[38;5;243m[48;5;235m 47 [m[38;5;252m[48;5;234m[8C[38;5;197mfor[m[38;5;252m[48;5;234m data [38;5;197min[m[38;5;252m[48;5;234m tqdm(valid_loader):
+[38;5;243m[48;5;235m 48 [m[38;5;252m[48;5;234m[12Cinput_ids = data[[38;5;186m'input_ids'[m[38;5;252m[48;5;234m].to(device)[49;187H1,1[10C頂端[1;5H[?25h[49;1H
+[38;5;186mW11: 警告: 檔案 "run.py" 自上次讀入後已變動[m[38;5;252m[48;5;234m
+[38;5;186m進一步說明請見 ":help W11"。[m[38;5;252m[48;5;234m
+[38;5;186m確定([O]), 載入檔案((L)): [m[38;5;252m[48;5;234m[49;1H[K[1;1H[3L[?25l[1;1H[38;5;208m[48;5;235m  1 [m[38;5;252m[48;5;234m[38;5;197m[48;5;236mimport[m[38;5;252m[48;5;234m[48;5;236m sys                                                                                                                                                                                              [m[38;5;252m[48;5;234m[2;1H[38;5;243m[48;5;235m  2 [m[38;5;252m[48;5;234m[38;5;197mfrom[m[38;5;252m[48;5;234m transformers [38;5;197mimport[m[38;5;252m[48;5;234m AdamW
+[38;5;243m[48;5;235m  3 [m[38;5;252m[48;5;234m[38;5;197mfrom[m[38;5;252m[48;5;234m transformers [38;5;197mimport[m[38;5;252m[48;5;234m BertTokenizer[49;187H[K[49;187H1,1[10C頂端[1;5H[?25h[49;1H[?2004l[>4;m[39;49m[?2004l[?1l>[>4;m[?1049l[23;0;0tVim: 讀取輸入錯誤，離開中...
+Vim: Finished.
+[49;1H[23;2t[23;1t[27m[23m[29m[m[38;5;252m[48;5;234m[39;49m還有 3 個檔案等待編輯
+51948051948052
