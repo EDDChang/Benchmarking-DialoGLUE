@@ -1,0 +1,239 @@
+clinc
+add funds to the retirement account from the pnc account only -> predict label: freeze_account, true label: transfer
+repeat what the weather will be like -> predict label: weather, true label: transfer
+who set up the numbers for it -> predict label: who_made_you, true label: timer
+let me know when it's been 5 minutes -> predict label: date, true label: timer
+i heard some woman say she was going to yerd me, what's that mean -> predict label: translate, true label: definition
+what's the answer to it all -> predict label: what_song, true label: meaning_of_life
+who do i contact about updating my insurance -> predict label: insurance, true label: insurance_change
+i need to sign up for a new allstate plan -> predict label: new_card, true label: insurance_change
+what is the procedure for signing up for a new allstate plan -> predict label: new_card, true label: insurance_change
+how do i sign up for a new allstatedplan -> predict label: new_card, true label: insurance_change
+what are the travel conditions for haiti -> predict label: weather, true label: travel_alert
+vacation request information -> predict label: pto_request_status, true label: pto_request
+how can i up my credit score -> predict label: credit_score, true label: improve_credit_score
+i have a revolving store card and defaulted so will my fico score be affected -> predict label: card_declined, true label: improve_credit_score
+give me a amusing fact about wolf -> predict label: tell_joke, true label: fun_fact
+what day can i expect to receive payment on -> predict label: bill_due, true label: payday
+can credit card companies expedite delivery of reissued credit cards -> predict label: new_card, true label: replacement_card_duration
+can you call the help desk line for my credit card company -> predict label: account_blocked, true label: replacement_card_duration
+how can i request a new credit card -> predict label: new_card, true label: replacement_card_duration
+what's the phone number for my credit card company -> predict label: find_phone, true label: replacement_card_duration
+is it six o clock yet -> predict label: alarm, true label: time
+let me know if my application for american saving bank -> predict label: new_card, true label: application_status
+bob is my name now -> predict label: change_ai_name, true label: change_user_name
+ai answer my questions with my name first which is deb -> predict label: change_ai_name, true label: change_user_name
+change name for me -> predict label: change_ai_name, true label: change_user_name
+my name is going to be sherlock -> predict label: change_ai_name, true label: change_user_name
+a hidden government facility -> predict label: account_blocked, true label: where_are_you_from
+the list should also have 2 loaves of bread -> predict label: order, true label: shopping_list_update
+tell me what you can do for me -> predict label: user_name, true label: what_can_i_ask_you
+what are you programmed to do for me -> predict label: who_do_you_work_for, true label: what_can_i_ask_you
+i'd like to make a reservation at rooth chris, can you do that -> predict label: accept_reservations, true label: restaurant_reservation
+are there any open reservations at outback tonight -> predict label: accept_reservations, true label: restaurant_reservation
+i wanna know your maker -> predict label: where_are_you_from, true label: who_made_you
+am i close to arriving at the post office -> predict label: directions, true label: distance
+when will i arrive at hy-vee -> predict label: flight_status, true label: distance
+how far am i from orlando -> predict label: where_are_you_from, true label: distance
+give me an eta on when i will arrive at my destination -> predict label: flight_status, true label: distance
+when will i get to orlando -> predict label: flight_status, true label: distance
+do i have a ways to go or am i close to getting to penn station -> predict label: directions, true label: distance
+call my name -> predict label: change_user_name, true label: user_name
+what's your designation -> predict label: what_is_your_name, true label: user_name
+what time is it in phoenix -> predict label: time, true label: timezone
+go to upcoming song -> predict label: play_music, true label: next_song
+i dont want to listen to this song -> predict label: what_song, true label: next_song
+when did i last make a purchase -> predict label: last_maintenance, true label: transactions
+is my visa bill over my limit this month -> predict label: credit_limit, true label: transactions
+what have i spent things on -> predict label: spending_history, true label: transactions
+show what i have spent things on -> predict label: spending_history, true label: transactions
+how much have i spent on my debit card this month -> predict label: spending_history, true label: transactions
+how much was my last target trip -> predict label: where_are_you_from, true label: transactions
+i need some suggestions for dinner places tonight -> predict label: meal_suggestion, true label: restaurant_suggestion
+give me restaurant reccomendations -> predict label: accept_reservations, true label: restaurant_suggestion
+today my electric bill will be paid, or should be -> predict label: bill_due, true label: pay_bill
+today is the day i should pay my electric bill -> predict label: bill_due, true label: pay_bill
+do i overspend when it comes to fast food -> predict label: shopping_list, true label: spending_history
+tell me how much i have been buying as of late -> predict label: transactions, true label: spending_history
+did i stick to my dinner budget -> predict label: todo_list, true label: spending_history
+when will i hear back about my days off -> predict label: next_holiday, true label: pto_request_status
+i'm trying to raise my credit score can you tell me what it is now -> predict label: improve_credit_score, true label: credit_score
+where can i find information on oil changes for my car -> predict label: oil_change_how, true label: oil_change_when
+what are the manufacturers guidance on oil changes -> predict label: oil_change_how, true label: oil_change_when
+that checks out -> predict label: balance, true label: yes
+can we please -> predict label: what_can_i_ask_you, true label: yes
+10-4 -> predict label: calculator, true label: yes
+ya -> predict label: greeting, true label: yes
+yup -> predict label: no, true label: yes
+what were you supposed to remind me of -> predict label: where_are_you_from, true label: reminder
+what did i ask you to remind me of -> predict label: repeat, true label: reminder
+is my meeting with frank on my list of reminders -> predict label: meeting_schedule, true label: reminder
+did i tell you to remind me about laundry -> predict label: todo_list, true label: reminder
+what kinds of things are you supposed to remind me of -> predict label: what_can_i_ask_you, true label: reminder
+is my meeting with frank on my calendar -> predict label: meeting_schedule, true label: calendar
+on tuesday you are supposed to have a meeting -> predict label: schedule_meeting, true label: calendar
+you have yo go to school on calendar -> predict label: where_are_you_from, true label: calendar
+i bought 6 shirts at $499 each what was my total expenditure for them -> predict label: spending_history, true label: calculator
+i spent 34 dollars for 12 gallons of paint what is the average price for each gallon -> predict label: exchange_rate, true label: calculator
+can i bring perfume on the plane or what is the size limit -> predict label: ingredients_list, true label: carry_on
+what are the rules for traveling with toothpaste -> predict label: travel_suggestion, true label: carry_on
+can i fly with my razors or are there restrictions -> predict label: plug_type, true label: carry_on
+how much pto is gone -> predict label: pto_balance, true label: pto_used
+how much of my pto is left -> predict label: pto_balance, true label: pto_used
+find out the next available date and time i can go to get my oil changed please -> predict label: oil_change_when, true label: schedule_maintenance
+can you let me know the next open slot for me to get my oil changed -> predict label: oil_change_when, true label: schedule_maintenance
+what is the next date for which i can get an oil change appointment -> predict label: oil_change_when, true label: schedule_maintenance
+tell my bank's fraud department i'm going to mexico -> predict label: report_fraud, true label: travel_notification
+i appeciate it -> predict label: yes, true label: thank_you
+when does the jerky expire -> predict label: expiration_date, true label: food_last
+what is the expiration date for those eg -> predict label: expiration_date, true label: food_last
+how many minutes should i set an alarm for this bake -> predict label: alarm, true label: cook_time
+when can i expect meal of salmon to be finished -> predict label: food_last, true label: cook_time
+are you able to remind me about something -> predict label: what_can_i_ask_you, true label: reminder_update
+someone used my chase card without my authorization -> predict label: report_fraud, true label: report_lost_card
+my capital one visa was taken without permission -> predict label: report_fraud, true label: report_lost_card
+i need to report that someone ran off with my td bank card earlier -> predict label: report_fraud, true label: report_lost_card
+if i use applesauce instead of oil, will that mess it up -> predict label: oil_change_how, true label: ingredient_substitution
+i would like to make a call to sal -> predict label: change_ai_name, true label: make_call
+what items are on my list of to-dos -> predict label: shopping_list, true label: todo_list
+is make a hair appointment on my todo list right now -> predict label: todo_list_update, true label: todo_list
+when does the current billing cycle end -> predict label: payday, true label: bill_due
+do they serve good tacos at the buffet -> predict label: accept_reservations, true label: restaurant_reviews
+my favorite, beef tacos at the buffet -> predict label: meal_suggestion, true label: restaurant_reviews
+they sold out of tacos at the buffet -> predict label: shopping_list_update, true label: restaurant_reviews
+yum, pulled pork tacos at the buffet -> predict label: cancel_reservation, true label: restaurant_reviews
+do people say per se is any good or not -> predict label: definition, true label: restaurant_reviews
+does z used the same plus as we do in the united states -> predict label: definition, true label: plug_type
+how many miles are my tires rated for -> predict label: tire_pressure, true label: tire_change
+how long do i have to wait to get a day off -> predict label: pto_balance, true label: next_holiday
+be more quiet -> predict label: whisper_mode, true label: change_volume
+speak up -> predict label: what_can_i_ask_you, true label: change_volume
+can you speak quieter -> predict label: whisper_mode, true label: change_volume
+who is responsible for your employment -> predict label: who_made_you, true label: who_do_you_work_for
+do i own you -> predict label: user_name, true label: who_do_you_work_for
+who controls you -> predict label: who_made_you, true label: who_do_you_work_for
+what is the name of the place you work at -> predict label: where_are_you_from, true label: who_do_you_work_for
+what's the most i can charge on my card -> predict label: min_payment, true label: credit_limit
+how much do i have available on my visa card -> predict label: balance, true label: credit_limit
+as my visa got a high enough limit on it -> predict label: credit_limit_change, true label: credit_limit
+what is my credit max -> predict label: credit_score, true label: credit_limit
+how much is my maximum to spend on credit cards -> predict label: min_payment, true label: credit_limit
+can i get a table for four at 8:00 -> predict label: restaurant_reservation, true label: how_busy
+is the friday's full after 4 -> predict label: date, true label: how_busy
+what is the best time to go to get a burger without a line -> predict label: food_last, true label: how_busy
+how long before i can eat at chic fil a -> predict label: food_last, true label: how_busy
+is mr joes pizza available for a seating -> predict label: restaurant_reservation, true label: how_busy
+can i reserve tables at the new york restaurant -> predict label: restaurant_reservation, true label: accept_reservations
+is it possible to reserve a table at white castle -> predict label: restaurant_reservation, true label: accept_reservations
+do you think they'll let me reserve a table at the olive garden -> predict label: restaurant_reservation, true label: accept_reservations
+can you tell me when my item will get here -> predict label: replacement_card_duration, true label: order_status
+can you tell me where my item is -> predict label: report_lost_card, true label: order_status
+i would like to change the name on my checking account -> predict label: change_ai_name, true label: pin_change
+i would like to change the name on my credit card account -> predict label: change_ai_name, true label: pin_change
+i would like to change the name on my first hawaiian bank account -> predict label: change_ai_name, true label: pin_change
+i would like to change the name on my first bankcard account -> predict label: change_ai_name, true label: pin_change
+i would like to change the name on my capital one account -> predict label: freeze_account, true label: pin_change
+change the code of my savings account to be 1234 -> predict label: account_blocked, true label: pin_change
+regards -> predict label: greeting, true label: goodbye
+that's all i need, i'm going now -> predict label: yes, true label: goodbye
+signing off -> predict label: yes, true label: goodbye
+did someone who is unauthorized try to get into my bank account -> predict label: report_fraud, true label: account_blocked
+what kind of music on the speaker now -> predict label: play_music, true label: what_song
+give me a recipe for tacos -> predict label: recipe, true label: ingredients_list
+tell me what's in tacos -> predict label: restaurant_suggestion, true label: ingredients_list
+what's a good recipe foe tacos -> predict label: recipe, true label: ingredients_list
+my online bill has some items that i didn't purchase from penneys -> predict label: transactions, true label: report_fraud
+my bill shows a purchase from payless shoes but i didn't buy anything -> predict label: transactions, true label: report_fraud
+i don't remember buying this -> predict label: report_lost_card, true label: report_fraud
+i think someone jacked my bank account -> predict label: account_blocked, true label: report_fraud
+open map and pin point my location -> predict label: pin_change, true label: current_location
+how is the weather looking in seattle -> predict label: greeting, true label: weather
+how's the weather in seattle -> predict label: greeting, true label: weather
+what is the weather doing now -> predict label: greeting, true label: weather
+how is the weather -> predict label: greeting, true label: weather
+how is the weather in austin -> predict label: greeting, true label: weather
+how is that weather -> predict label: greeting, true label: weather
+how does the weather feel -> predict label: greeting, true label: weather
+go to whisper mode until my morning alarm goes off -> predict label: alarm, true label: whisper_mode
+that was a mistake, undo that -> predict label: no, true label: cancel
+forget what i told you to do -> predict label: todo_list_update, true label: cancel
+be quiet -> predict label: whisper_mode, true label: cancel
+stop talking you are annoying -> predict label: tell_joke, true label: cancel
+hey, how are you -> predict label: who_made_you, true label: greeting
+hi, how are you -> predict label: who_made_you, true label: greeting
+tell me how you are doing -> predict label: where_are_you_from, true label: greeting
+i want to know how you are doing -> predict label: where_are_you_from, true label: greeting
+will you tell me how the ai is doing -> predict label: where_are_you_from, true label: greeting
+would you tell me how the ai is doing -> predict label: where_are_you_from, true label: greeting
+who do i have the pleasure of speaking with -> predict label: meeting_schedule, true label: what_is_your_name
+who am i speaking with -> predict label: who_do_you_work_for, true label: what_is_your_name
+i'd like my checks to be deposited into my account directly, how do i do that -> predict label: order_checks, true label: direct_deposit
+what's the apr on my savings account -> predict label: apr, true label: interest_rate
+can i get more credit -> predict label: improve_credit_score, true label: credit_limit_change
+what kind of things to you like to outside of work -> predict label: travel_suggestion, true label: what_are_your_hobbies
+"i'll be travelling from lax and headed to phl for 120 on the 10th of may -> predict label: travel_notification, true label: book_flight
+"i"m headed out to lax and going to phl for a low price of $120 this weekend on the 12th -> predict label: book_hotel, true label: book_flight
+"i'll leave to lax and go to phl for $120 on nov 5th -> predict label: book_hotel, true label: book_flight
+tell jim i'm coming home soon -> predict label: travel_notification, true label: text
+i want to tell susan that the meeting has been cancelled -> predict label: meeting_schedule, true label: text
+tell fred that i don't have his guitar -> predict label: report_lost_card, true label: text
+how much is my water and sewer -> predict label: gas, true label: bill_balance
+has my electricity bill increased this month how much -> predict label: bill_due, true label: bill_balance
+how expensive is my internet -> predict label: shopping_list, true label: bill_balance
+whens my insurance due and how much does it cost -> predict label: bill_due, true label: bill_balance
+what is my current location -> predict label: current_location, true label: share_location
+what are my mastercard points good for -> predict label: rewards_balance, true label: redeem_rewards
+what are the steps to get my rewards for my visa card -> predict label: rewards_balance, true label: redeem_rewards
+how can i claim my rewards for my visa card -> predict label: rewards_balance, true label: redeem_rewards
+how can i get my rewards for my master card -> predict label: rewards_balance, true label: redeem_rewards
+where would i get my rewards for my master card -> predict label: rewards_balance, true label: redeem_rewards
+drop some beats -> predict label: next_song, true label: play_music
+i need buy a birthday gift for sue taken off my calendar  it is on monday or tuesday last week -> predict label: order, true label: calendar_update
+how many more miles can i drive on my current tank -> predict label: mpg, true label: gas
+when will my new credit card arrive -> predict label: replacement_card_duration, true label: expiration_date
+i need options or italian tonight -> predict label: change_language, true label: meal_suggestion
+do you have any recommendations for korean -> predict label: change_language, true label: meal_suggestion
+what kind of indian would you recommend -> predict label: change_language, true label: meal_suggestion
+what would you suggest for japanese -> predict label: change_language, true label: meal_suggestion
+i need to know what's good for chinese around here -> predict label: change_language, true label: meal_suggestion
+show me ideas for hamburger -> predict label: meal_suggestion, true label: recipe
+please tell me a recipe for this meal -> predict label: meal_suggestion, true label: recipe
+what is in a burrito recipe -> predict label: ingredients_list, true label: recipe
+what do i take home -> predict label: user_name, true label: income
+what is my payment going to be -> predict label: min_payment, true label: income
+place my order alexa -> predict label: order_status, true label: order
+siri, place my amazon order -> predict label: order_status, true label: order
+where can i find bluetooth speakers -> predict label: alarm, true label: order
+what is the price of bluetooth speakers on amazon -> predict label: what_song, true label: order
+i could not buy food using my card when i was in vietnam -> predict label: international_fees, true label: card_declined
+i was in thailand and i could not use my card to buy snacks -> predict label: international_fees, true label: card_declined
+how come my credit card isn't working -> predict label: damaged_card, true label: card_declined
+test_acc = 0.9535555555555556
+true label: play_music
+pull up the songs under slow -> predict label: next_song, true label: play_music
+drop some beats -> predict label: measurement_conversion, true label: play_music
+bump some jams -> predict label: reset_settings, true label: play_music
+what can i do to get rid of this event -> predict label: cancel, true label: calendar_update
+what is the best way to remove this appointment -> predict label: schedule_maintenance, true label: calendar_update
+when will my new credit card arrive -> predict label: replacement_card_duration, true label: expiration_date
+in my motivational playlist include the song rap god -> predict label: play_music, true label: update_playlist
+i need what i'm listening to right now to be put on my exercise playlist -> predict label: play_music, true label: update_playlist
+what do you think about me calling you cora -> predict label: what_is_your_name, true label: change_ai_name
+what is the phone number of the car rental place -> predict label: find_phone, true label: car_rental
+i would like thai food -> predict label: restaurant_suggestion, true label: meal_suggestion
+i need options or italian tonight -> predict label: international_visa, true label: meal_suggestion
+do you have any recommendations for korean -> predict label: change_language, true label: meal_suggestion
+what would you suggest for japanese -> predict label: change_language, true label: meal_suggestion
+i need to know what's good for chinese around here -> predict label: change_language, true label: meal_suggestion
+i want to eat something from turkey -> predict label: order, true label: meal_suggestion
+do you have any suggested roman recipes -> predict label: recipe, true label: meal_suggestion
+please tell me a recipe for this meal -> predict label: meal_suggestion, true label: recipe
+what is my payment going to be -> predict label: min_payment, true label: income
+place my order alexa -> predict label: order_status, true label: order
+where can i find bluetooth speakers -> predict label: restaurant_reviews, true label: order
+what is the price of bluetooth speakers on amazon -> predict label: shopping_list, true label: order
+how is traffic nearest the ben franklin bridge philadelphia heading to the new jersey turnpike -> predict label: directions, true label: traffic
+why can't i use my credit card -> predict label: account_blocked, true label: card_declined
+why won't you let me pay with my credit card -> predict label: account_blocked, true label: card_declined
+how come my credit card isn't working -> predict label: damaged_card, true label: card_declined
+test_acc = 0.9473333333333334

@@ -1,0 +1,106 @@
+hwu
+change alarm to start at midnight -> predict label: alarm_remove, true label: alarm_set
+set a timer at five am seven days a week -> predict label: calendar_set, true label: alarm_set
+change my alarms to mountain time -> predict label: alarm_remove, true label: alarm_set
+go to sleep -> predict label: play_audiobook, true label: audio_volume_mute
+when is the school dance junction marked -> predict label: recommendation_locations, true label: calendar_query
+am i available at five pm on sunday -> predict label: alarm_set, true label: calendar_query
+do i have any notifications from social media -> predict label: social_query, true label: calendar_query
+do i need to pick up the kids from anything today -> predict label: takeaway_query, true label: calendar_query
+is there anything i need to be aware of -> predict label: iot_hue_lightdim, true label: calendar_query
+do i have any undone tasks -> predict label: lists_query, true label: calendar_query
+what is left for today -> predict label: qa_maths, true label: calendar_query
+list out my upcoming events -> predict label: recommendation_events, true label: calendar_query
+one thousand two hundred and thirty pm already you will have a meeting in ten mins -> predict label: calendar_set, true label: calendar_query
+what day of the week is my birthday this year -> predict label: datetime_query, true label: calendar_query
+blot me all the phone calls planned for the morning of twenty three march -> predict label: email_querycontact, true label: calendar_set
+see if john is available for a meeting on Monday -> predict label: calendar_query, true label: calendar_set
+set the alarm in my calendar events before five mins -> predict label: alarm_set, true label: calendar_set
+search for your favorite meal -> predict label: general_quirky, true label: cooking_recipe
+which time zone are we in please change to current -> predict label: datetime_query, true label: datetime_convert
+what is today -> predict label: qa_definition, true label: datetime_query
+what is the time difference between here and dakar -> predict label: datetime_convert, true label: datetime_query
+enter atdfd@yahoo dot com into my contact list -> predict label: email_querycontact, true label: email_addcontact
+get apahelp@yahoo dot com in my contacts -> predict label: email_querycontact, true label: email_addcontact
+open email -> predict label: email_sendemail, true label: email_query
+carlos linux upgrade email -> predict label: email_addcontact, true label: email_query
+how old is mary s. -> predict label: qa_factoid, true label: email_querycontact
+did mom text me -> predict label: email_query, true label: email_querycontact
+is hayden still living on turnpike lane -> predict label: qa_factoid, true label: email_querycontact
+add rebecca green to my list of favorite contacts -> predict label: lists_createoradd, true label: email_querycontact
+jj.nzt@yahoo dot com -> predict label: email_querycontact, true label: email_sendemail
+tell to joe's email that come to my house in this moment i am alone -> predict label: email_querycontact, true label: email_sendemail
+add mail id subject content -> predict label: email_addcontact, true label: email_sendemail
+you've done it right. -> predict label: general_affirm, true label: general_praise
+today i had a lunch with my longtime sweetheart play me a nice song to the mood -> predict label: play_music, true label: general_quirky
+what's on tv -> predict label: qa_definition, true label: general_quirky
+anything i need to know -> predict label: lists_query, true label: general_quirky
+is mile marker sixty five where the hanging tree is located -> predict label: qa_factoid, true label: general_quirky
+do i need to spare washing my car today -> predict label: weather_query, true label: general_quirky
+can you explain me the problems when the syria becomes more stronger than america -> predict label: transport_traffic, true label: general_quirky
+have you come across any new recipes -> predict label: cooking_recipe, true label: general_quirky
+give me the product review from gamespot about the nintendo switch -> predict label: qa_definition, true label: general_quirky
+can you wake the roomba for the kitchen -> predict label: alarm_remove, true label: iot_cleaning
+turn the lights on party mode -> predict label: iot_hue_lighton, true label: iot_hue_lightchange
+set the mood please -> predict label: play_music, true label: iot_hue_lightchange
+make curser adjustable position -> predict label: music_settings, true label: iot_hue_lightchange
+let's have a warm glow in the front room -> predict label: iot_hue_lighton, true label: iot_hue_lightchange
+change my light color to blue and please turn off the kitchen light -> predict label: iot_hue_lightoff, true label: iot_hue_lightchange
+power off the current -> predict label: iot_wemo_off, true label: iot_hue_lightoff
+by main power off -> predict label: iot_wemo_off, true label: iot_hue_lightoff
+it's dark in the living room -> predict label: iot_hue_lightdim, true label: iot_hue_lighton
+i would like all the lights on when i enter -> predict label: general_quirky, true label: iot_hue_lightup
+increase -> predict label: audio_volume_up, true label: iot_hue_lightup
+search the item -> predict label: lists_query, true label: lists_createoradd
+remind me to buy jeans on my shopping list -> predict label: calendar_set, true label: lists_createoradd
+open google keep -> predict label: play_audiobook, true label: lists_query
+groceries list -> predict label: lists_createoradd, true label: lists_query
+whats the schedule for today -> predict label: calendar_query, true label: lists_query
+add song to running list -> predict label: lists_createoradd, true label: music_likeness
+i like to be it -> predict label: general_quirky, true label: music_likeness
+add this channel to pandora -> predict label: play_radio, true label: music_likeness
+what is in my favorites music folder -> predict label: music_query, true label: music_likeness
+all i ever want to hear is rap -> predict label: play_music, true label: music_likeness
+give me the details on elton john -> predict label: qa_factoid, true label: music_query
+what is the name of the singer -> predict label: qa_factoid, true label: music_query
+who is this -> predict label: qa_definition, true label: music_query
+list of playback of ar rahman collections -> predict label: play_audiobook, true label: music_query
+add newscast time to daily schedule -> predict label: calendar_set, true label: news_query
+what were the cities affected by the earthquake -> predict label: general_quirky, true label: news_query
+what's happening around the world -> predict label: recommendation_events, true label: news_query
+i want to know everything that breaks about the dam breaking in california -> predict label: general_quirky, true label: news_query
+find me info on cars -> predict label: email_querycontact, true label: news_query
+can you play file -> predict label: play_game, true label: play_audiobook
+audio -> predict label: audio_volume_up, true label: play_audiobook
+paper scissors or stone -> predict label: qa_definition, true label: play_game
+turn on the tunes -> predict label: play_radio, true label: play_music
+play jumper by third eye blind -> predict label: play_game, true label: play_music
+after this song play atmosphere -> predict label: music_settings, true label: play_music
+play all third day -> predict label: play_audiobook, true label: play_music
+play my play list -> predict label: play_music, true label: play_podcasts
+can you play back to december -> predict label: play_audiobook, true label: play_podcasts
+please play some songs for kids -> predict label: play_music, true label: play_radio
+what is love -> predict label: general_quirky, true label: qa_definition
+when does the super bowl officially start -> predict label: calendar_query, true label: qa_factoid
+how many months in a year -> predict label: datetime_query, true label: qa_factoid
+how many pages long is harry potter -> predict label: recommendation_movies, true label: qa_factoid
+when is shakira's birthday -> predict label: calendar_query, true label: qa_factoid
+tell me when will indians economy touch that of americas -> predict label: transport_query, true label: qa_factoid
+tell me who will win the next presidential election -> predict label: news_query, true label: qa_factoid
+what is the value of apple -> predict label: qa_factoid, true label: qa_stock
+what is playing at the local theater right now -> predict label: recommendation_movies, true label: recommendation_events
+when is the yearly cultural event coming up -> predict label: calendar_query, true label: recommendation_events
+where is mcdo -> predict label: qa_factoid, true label: recommendation_locations
+tell comcast i am still on hold -> predict label: email_sendemail, true label: social_post
+get me updates from kenny's facebook from the weekend -> predict label: email_querycontact, true label: social_query
+take me to the most popular post -> predict label: social_post, true label: social_query
+is there any good chinese takeout that's open late -> predict label: takeaway_query, true label: takeaway_order
+order a smoked meat platter from beanos -> predict label: cooking_recipe, true label: takeaway_order
+navigation search -> predict label: qa_factoid, true label: transport_query
+how far away is the nearest rest stop -> predict label: recommendation_locations, true label: transport_query
+when i should leave to office -> predict label: audio_volume_mute, true label: transport_query
+google train tickets to washington dc -> predict label: transport_query, true label: transport_ticket
+get me a ride on the commuter train from nj to ny -> predict label: transport_taxi, true label: transport_ticket
+is summer going on -> predict label: calendar_query, true label: weather_query
+are there any tornado warnings today -> predict label: alarm_query, true label: weather_query
+test_acc = 0.9033457249070632
